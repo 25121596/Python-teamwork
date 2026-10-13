@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "scope": "Index and filesystem metadata only; mail bodies are not read.",
+  "canonical_index": "full/index",
+  "index_sha256": "16a8ee2cc0854ea095095af51069bb06979b013ff41cdbc6df20ff542110bc27",
+  "mail_id_scheme": "trec06c_ + SHA256(UTF8(trec06c-path-v1 + NUL + normalized relative_path))",
+  "index": {
+    "physical_lines": 64620,
+    "blank_lines": 0,
+    "malformed_rows": 0,
+    "unknown_label_rows": 0,
+    "unsafe_path_rows": 0,
+    "path_resolution_error_rows": 0,
+    "auxiliary_path_rows": 0,
+    "accepted_rows": 64620,
+    "accepted_label_counts": {
+      "ham": 21766,
+      "spam": 42854
+    },
+    "unique_paths": 64620,
+    "duplicate_paths": 0,
+    "duplicate_extra_rows": 0,
+    "label_conflict_paths": 0,
+    "label_conflict_rows": 0
+  },
+  "files": {
+    "unique_status_counts": {
+      "eligible": 64620
+    },
+    "eligible_unique_files": 64620,
+    "eligible_label_counts": {
+      "ham": 21766,
+      "spam": 42854
+    },
+    "size_bytes": {
+      "count": 64620,
+      "total_bytes": 138681252,
+      "percentile_method": "nearest_rank_ceil_p_times_n",
+      "min_bytes": 433,
+      "max_bytes": 49739,
+      "p50_bytes": 1383,
+      "p90_bytes": 4073,
+      "p95_bytes": 6082,
+      "p99_bytes": 12992
+    }
+  },
+  "inventory": {
+    "candidate_files": 64620,
+    "unindexed_files": 0,
+    "indexed_paths_not_in_inventory": 0,
+    "helper_directories": 0,
+    "helper_files": 0,
+    "symlink_entries": 0,
+    "scan_errors": 0
+  },
+  "development_sample": {
+    "purpose": "Parser development only; not a train/validation/test split.",
+    "strategy": "Equal class quotas, capped by availability; sorted paths, then random.Random(seed).sample.",
+    "requested_size": 400,
+    "actual_size": 400,
+    "seed": 42,
+    "label_counts": {
+      "ham": 200,
+      "spam": 200
+    }
+  },
+  "issue_counts": {},
+  "issue_records": 0,
+  "passed": true
+}

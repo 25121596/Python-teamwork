@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-13",
+  "checks": {
+    "full_audit_passed": true,
+    "different_working_directory": true,
+    "byte_identical_rerun": true,
+    "manifest_unique_ids": true,
+    "sample_unique_and_subset": true,
+    "sample_class_counts": true,
+    "independent_metadata_match": true,
+    "no_index_issues": true,
+    "invalid_sample_size_returns_2": true,
+    "missing_config_returns_2": true,
+    "failure_does_not_overwrite_previous_outputs": true,
+    "complete_manifest_and_issues_git_ignored": true
+  },
+  "unittest": {
+    "tests_run": 9,
+    "executed_passed": 8,
+    "skipped": 1,
+    "skip_reason": "Windows host did not allow creation of a symlink."
+  },
+  "artifacts_sha256": {
+    "mail_manifest.csv": "59155ca6e1b9abd3104efeed64de869292a0799403d690125abbc2be6022ff99",
+    "index_issues.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "development_sample.csv": "ad69970bcdb1266c2a2adf428c0fac6728cc5aaeeef32735d70df55784fb607c",
+    "index_summary.json": "69ceda94d8a3335feb21d7739e4a54bec1bc5e691bad2850909bbd271d0dc0b4"
+  },
+  "passed": true
+}

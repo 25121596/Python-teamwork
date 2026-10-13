@@ -8,7 +8,7 @@
 
 **当前范围**
 
-本阶段建立独立 Python 环境、依赖清单、项目目录、数据路径配置与环境检查脚本。邮件解析、全量审计、数据划分和模型训练在后续阶段开展。
+已完成独立 Python 环境、项目骨架和全量索引审计，生成了本地邮件清单与固定开发样本。邮件正文解析、数据划分和模型训练在后续阶段开展。
 
 建议主线：邮件解析清洗 → 内容去重与固定划分 → 探索分析 → jieba 与 TF-IDF → 朴素贝叶斯及逻辑回归 → 评估解释。
 
@@ -72,7 +72,32 @@ $env:TREC06C_ROOT = 'D:/课程数据/trec06c'
 
 安全摘要写入 `artifacts/audit/environment_check.json`，不含个人绝对路径、收发件地址或邮件正文。可通过 `--config` 和 `--output` 指定其他配置或输出；相对参数均以项目根目录为基准。
 
-目前可执行入口只有环境检查。后续运行顺序按项目计划补充：索引审计 → 解析清洗 → 去重划分 → EDA/特征 → 模型比较 → 最终评估。相应脚本尚未实现，不应把本阶段检查当作训练结果。
+目前可执行入口为环境检查和下述索引审计。后续运行顺序：解析清洗 → 去重划分 → EDA/特征 → 模型比较 → 最终评估；这些后续脚本尚未实现。
+
+**第二阶段索引审计**
+
+```powershell
+.\.venv\Scripts\python.exe scripts\audit_index.py
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+审计以 `full/index` 为唯一入口，只读索引和文件系统元数据，不读取邮件正文。检查格式、标签、路径安全、重复与冲突、缺失/非普通/空文件以及索引与目录覆盖情况。辅助文件即使被索引引用，也不会进入有效邮件或开发样本。
+
+| 产物 | 用途与提交范围 |
+|---|---|
+| `artifacts/processed/mail_manifest.csv` | 全量稳定样本清单，仅保存在本地，被 Git 忽略 |
+| `artifacts/processed/index_issues.jsonl` | 异常明细，仅保存在本地；当前审计没有异常，为空文件 |
+| `artifacts/audit/index_summary.json` | 聚合数量、文件大小、审计状态与抽样说明，上传仓库 |
+| `artifacts/splits/development_sample.csv` | 固定 400 封开发样本的相对路径与标签元数据，上传仓库 |
+| `artifacts/audit/stage02_validation.json` | 本阶段实际验证证据，上传仓库 |
+
+默认开发样本为 ham/spam 各 200 封，种子来自配置的 `random_state=42`；先按规范化路径排序，再抽样。它用于覆盖两类解析场景，**不代表原始类别比例，也不是训练/验证/测试划分**。可用 `--development-size` 改变大小；样本不足时按可用量缩减。
+
+`mail_id` 按相对语料根的规范化路径生成 SHA256，与个人绝对路径和索引排列顺序无关；它不是正文内容哈希，不能据此宣称已经完成内容去重。清单中的 `relative_path` 相对于 `data_root`，后续读取方式为 `data_root / relative_path`。
+
+同路径同标签重复只保留一个 canonical 样本并统计额外行；标签冲突整体隔离。索引问题、空文件、覆盖异常等会使审计返回 1；全部通过返回 0；配置/访问等致命错误返回 2。返回 2 时旧产物可能保留，应先排除错误再重新运行。审计输出固定在项目 `artifacts` 下，确保全量清单与异常明细受到忽略规则保护。
+
+当前真实统计和测试限制见 [第二阶段记录](docs/stages/02_索引审计与样本清单.md)。
 
 **Notebook 使用**
 
@@ -87,12 +112,13 @@ $env:TREC06C_ROOT = 'D:/课程数据/trec06c'
 **项目目录**
 
 ```text
-src/spam_classifier/    后续可复用的解析、特征与模型模块
-scripts/                可执行入口，现有 check_environment.py
+src/spam_classifier/    可复用的索引审计模块，后续增加解析与建模
+scripts/                check_environment.py 与 audit_index.py
+tests/                  人工微型语料的边界测试
 notebooks/              后续探索和展示过程
 artifacts/audit/        聚合质量与环境记录
 artifacts/processed/    本地邮件文本缓存，Git 忽略
-artifacts/splits/       后续固定样本划分
+artifacts/splits/       开发样本元数据；后续增加正式数据划分
 artifacts/metrics/      后续聚合模型指标
 artifacts/figures/      后续图表
 artifacts/models/       本地模型缓存，Git 忽略
