@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "parser_version": "1.0",
+  "scope": "full",
+  "parser_source_sha256": "7227cc26773af3bc3cfa05c62410e947c3d91c49b723bc1d43ed208384ec7a29",
+  "input_records": 64620,
+  "processed_records": 64620,
+  "input_manifest_sha256": "59155ca6e1b9abd3104efeed64de869292a0799403d690125abbc2be6022ff99",
+  "cache_sha256": "16ad78a28dfda98b62608ab7dd50a351ebe5890c7452ee3c185f8a32ae668a01",
+  "status_counts": {
+    "ok": 29891,
+    "recovered": 33307,
+    "subject_only": 1422
+  },
+  "raw_source_digest": "ca1b876275dc9e1f979e2f430b5fd6062e85e4f7deb3f41a1dce55ca7df9d0df",
+  "usable_records": 64620,
+  "isolated_records": 0,
+  "by_label": {
+    "ham": {
+      "attachment_skipped_mail": 0,
+      "body_empty": 322,
+      "decode_fallback": 14575,
+      "encoding_warning_mail": 334,
+      "forwarded_skipped_mail": 0,
+      "has_html": 902,
+      "has_html_part_anywhere": 902,
+      "mime_defect_mail": 13927,
+      "replacement_mail": 1193,
+      "status_ok": 2991,
+      "status_recovered": 18453,
+      "status_subject_only": 322,
+      "subject_empty": 1,
+      "subject_missing": 0,
+      "total": 21766,
+      "usable": 21766
+    },
+    "spam": {
+      "attachment_skipped_mail": 0,
+      "body_empty": 1100,
+      "decode_fallback": 12403,
+      "encoding_warning_mail": 5500,
+      "forwarded_skipped_mail": 0,
+      "has_html": 11779,
+      "has_html_part_anywhere": 12595,
+      "mime_defect_mail": 6323,
+      "replacement_mail": 9367,
+      "status_ok": 26900,
+      "status_recovered": 14854,
+      "status_subject_only": 1100,
+      "subject_empty": 5,
+      "subject_missing": 0,
+      "total": 42854,
+      "usable": 42854
+    }
+  },
+  "top_mime_types": {
+    "multipart/alternative": 7147,
+    "multipart/mixed": 3194,
+    "multipart/related": 1550,
+    "other": 10,
+    "text/html": 13497,
+    "text/plain": 39222
+  },
+  "mime_defect_mail_counts": {
+    "InvalidBase64CharactersDefect": 6228,
+    "InvalidBase64LengthDefect": 1323,
+    "InvalidBase64PaddingDefect": 3193,
+    "InvalidMultipartContentTransferEncodingDefect": 8,
+    "MissingHeaderBodySeparatorDefect": 815,
+    "MultipartInvariantViolationDefect": 11901,
+    "NoBoundaryInMultipartDefect": 37,
+    "StartBoundaryNotFoundDefect": 11864
+  },
+  "recovery_action_mail_counts": {
+    "body_candidate_rejected": 72,
+    "broken_multipart_text_fallback": 11896,
+    "mislabeled_base64_text_fallback": 6531,
+    "subject_candidate_rejected": 5,
+    "transfer_decode_failed": 1010
+  },
+  "declared_charset_mail_counts": {
+    "ascii": 3,
+    "big5": 10,
+    "euc_kr": 1,
+    "gb2312": 63799,
+    "gbk": 2,
+    "invalid_or_unknown": 120,
+    "iso8859-1": 39,
+    "utf-8": 2
+  },
+  "used_charset_mail_counts": {
+    "ascii": 1759,
+    "big5": 2,
+    "cp1252": 1,
+    "euc_kr": 1,
+    "gb18030": 22444,
+    "gb2312": 63927,
+    "gbk": 2,
+    "iso8859-1": 1,
+    "utf-8": 6
+  },
+  "encoding_warning_mail_counts": {
+    "private_use_characters_present": 5796,
+    "suspected_misdeclared_charset": 38
+  },
+  "attempted_decoded_characters": 58527968,
+  "replacement_characters": 77275,
+  "replacement_ratio": 0.0013203089504149538,
+  "decoding_statistics_scope": "One decoded outcome per examined subject segment/body candidate, including rejected candidates; not internal codec probes.",
+  "retained_characters": 47051699,
+  "retained_replacement_characters": 74560,
+  "retained_replacement_ratio": 0.0015846399085397533,
+  "text_length_characters": {
+    "min": 2,
+    "p50": 337,
+    "p95": 2801,
+    "max": 30616
+  },
+  "quality_note": "Zero replacement characters do not prove absence of semantic mojibake. Review real samples.",
+  "passed": true
+}

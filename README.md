@@ -10,7 +10,7 @@
 
 **当前范围**
 
-已完成独立 Python 环境、项目骨架和全量索引审计，生成了本地邮件清单与固定开发样本。邮件正文解析、数据划分和模型训练在后续阶段开展。
+已完成独立 Python 环境、全量索引审计，以及 64,620 封邮件的主题/正文解析和清洗。清洗缓存留在本地，质量统计与验证记录已生成。下一步为内容去重与冻结数据划分。
 
 建议主线：邮件解析清洗 → 内容去重与固定划分 → 探索分析 → jieba 与 TF-IDF → 朴素贝叶斯及逻辑回归 → 评估解释。
 
@@ -74,7 +74,7 @@ $env:TREC06C_ROOT = 'D:/课程数据/trec06c'
 
 安全摘要写入 `artifacts/audit/environment_check.json`，不含个人绝对路径、收发件地址或邮件正文。可通过 `--config` 和 `--output` 指定其他配置或输出；相对参数均以项目根目录为基准。
 
-目前可执行入口为环境检查和下述索引审计。后续运行顺序：解析清洗 → 去重划分 → EDA/特征 → 模型比较 → 最终评估；这些后续脚本尚未实现。
+目前可执行入口为环境检查、索引审计和邮件解析清洗。后续运行顺序：去重划分 → EDA/特征 → 模型比较 → 最终评估；这些后续脚本尚未实现。
 
 **第二阶段索引审计**
 
@@ -101,6 +101,38 @@ $env:TREC06C_ROOT = 'D:/课程数据/trec06c'
 
 当前真实统计和测试限制见 [第二阶段记录](docs/stages/02_索引审计与样本清单.md)。
 
+**第三阶段邮件解析与清洗**
+
+```powershell
+.\.venv\Scripts\python.exe scripts\clean_mail.py --scope development
+.\.venv\Scripts\python.exe scripts\check_cleaning.py --scope development
+.\.venv\Scripts\python.exe scripts\clean_mail.py --scope full
+.\.venv\Scripts\python.exe scripts\check_cleaning.py --scope full
+```
+
+先使用固定开发样本调试和核验，再运行全量。启动前核对源索引 checksum、canonical 清单、标签、稳定 ID 和固定开发抽样结果；逐封读取异常会被记录，其余邮件继续处理。
+
+解析器先解传输编码，再处理声明 charset、HTML meta 与 UTF-8/GB18030 等回退。明确可读的错误 base64 声明可以有记录地回退为原 payload；未知传输编码、明显二进制或未拆分 MIME 块不作为正文。multipart/alternative 只选一个有效表示，related 只选根部件；跳过附件和转发的整封子邮件。
+
+主题与正文分开清洗，HTML 去 script/style、解实体并保留段落与锚文本；NFKC、英文小写、控制字符清理与常见 URL/邮箱/电话号码归一化使用同一函数。手机号及常见分隔式电话号码可掩码，但这不等于全面匿名化。
+
+| 产物 | 用途与提交范围 |
+|---|---|
+| `artifacts/processed/cleaned_development.jsonl` | 开发样本的解码/清洗结果，仅本地保存 |
+| `artifacts/processed/cleaned_mail.jsonl` | 全量逐封状态、清洗文本、解码文本与保留标签的对照文本，仅本地保存 |
+| `artifacts/processed/*cleaning_issues.jsonl` | 非 ok 状态元数据日志，包含可用的 recovered，不等于隔离名单，仅本地保存 |
+| `artifacts/audit/*cleaning_summary.json` | 聚合状态、类别保留率、编码、缺陷和字符质量统计，上传仓库 |
+| `artifacts/audit/*cleaning_validation.json` | 缓存校验、账目与规则复核汇总，上传仓库 |
+| `artifacts/processed/*cleaning_rule_review.json` | 逐封规则复核名单，仅本地保存 |
+| `artifacts/audit/stage03_validation.json` | 测试、开发重跑一致性、开发/全量一致性及 Git 忽略验证，上传仓库 |
+| `docs/清洗示例.md` | 明确标注的人工演示输入，不含真实邮件摘录 |
+
+互斥状态为 `ok`、`recovered`、`subject_only`、`empty`、`quarantined`、`error`。只有主题可用的邮件保留；无有效主题/正文的邮件隔离。单封运行错误返回并记录 error，全批仍输出账目，但程序退出码为 1；配置等致命错误返回 2。`summary.passed`仅表示输入处理完整且没有 error，不表示每封都有可用文本。
+
+`has_html`指所选有效正文是否经过 HTML 提取；`has_html_part_anywhere`指任意 MIME 部件是否声明 HTML，两者不能混作正文 HTML 率。attempt 字符统计覆盖所考察主题段/正文候选的解码结果（含被拒候选，不含内部 codec 探测），retained 统计只按最终 `text_clean` 计算。
+
+替换符比例为 0 不能证明没有语义乱码；private-use 字符等会标为质量警告。缓存中 `body_decoded`、`text_unstripped_html` 仍可能含个人信息，只供本地后续对照，不能当作已脱敏内容公开。真实数据复核与已知局限见 [第三阶段记录](docs/stages/03_邮件解析与全量清洗.md)，机制演示见 [人工清洗示例](docs/清洗示例.md)。
+
 **Notebook 使用**
 
 已安装 `ipykernel`。在现有 Notebook 或编辑器中选择本仓库的 `.venv` 解释器。如需在现有 Jupyter 中注册专用内核，可手动执行：
@@ -114,8 +146,8 @@ $env:TREC06C_ROOT = 'D:/课程数据/trec06c'
 **项目目录**
 
 ```text
-src/spam_classifier/    可复用的索引审计模块，后续增加解析与建模
-scripts/                check_environment.py 与 audit_index.py
+src/spam_classifier/    可复用的索引审计与邮件解析模块
+scripts/                环境检查、索引审计、清洗与清洗结果检查
 tests/                  人工微型语料的边界测试
 notebooks/              后续探索和展示过程
 artifacts/audit/        聚合质量与环境记录

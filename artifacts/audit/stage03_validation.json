@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-13",
+  "checks": {
+    "development_rerun_byte_identical": true,
+    "development_and_full_validators_passed": true,
+    "all_400_development_records_identical_in_full_cache": true,
+    "full_rerun_cache_unchanged_after_provenance_improvement": true,
+    "source_fingerprint_matches_generation_in_both_scopes": true,
+    "private_outputs_configuration_and_qa_lists_git_ignored": true,
+    "only_placeholder_tracked_in_private_directories": true,
+    "public_cleaning_reports_have_no_private_text_or_record_fields": true,
+    "unittest_passed": true
+  },
+  "commands": [
+    {
+      "command": "scripts/clean_mail.py --scope development",
+      "exit_code": 0
+    },
+    {
+      "command": "scripts/check_cleaning.py --scope development",
+      "exit_code": 0
+    }
+  ],
+  "unittest": {
+    "tests_run": 42,
+    "executed_passed": 41,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "skip_details": [
+      {
+        "test": "test_symlink_outside_data_is_rejected (test_index_audit.IndexAuditTests.test_symlink_outside_data_is_rejected)",
+        "reason": "Symlink creation is unavailable on this host."
+      }
+    ],
+    "passed": true
+  },
+  "development_full_consistency": {
+    "development_records": 400,
+    "matched_records": 400,
+    "mismatches": 0
+  },
+  "artifacts_sha256": {
+    "processed/cleaned_development.jsonl": "367e1cfccf2953e6193c5b5c1eb90a013806fd6e7daee8397bdb751209d8845b",
+    "processed/cleaned_mail.jsonl": "16ad78a28dfda98b62608ab7dd50a351ebe5890c7452ee3c185f8a32ae668a01",
+    "audit/development_cleaning_summary.json": "5d995f133c6b3b440044fc32c48428a335e43e631d2f549a6d84145e9537b284",
+    "audit/cleaning_summary.json": "8d9ea77e824ca0a970532d4b7419c70944b6efda9e3cbcf54fc4fee06f4ff92d",
+    "audit/development_cleaning_validation.json": "92373932eeec8e2ab0a2baf6b056f34f16981c8acea1a82f41c36172e57fc8cb",
+    "audit/cleaning_validation.json": "b92477f4557f0b6b8b0258bc08606d0f63aaefef01bf969c0a9004bc6a9bc4ef"
+  },
+  "parser_source_sha256": "7227cc26773af3bc3cfa05c62410e947c3d91c49b723bc1d43ed208384ec7a29",
+  "quality_review": {
+    "development_metadata_cases": 40,
+    "cleaned_text_spot_checks": 8,
+    "real_mail_text_published": false,
+    "per_mail_qa_metadata_public": false,
+    "public_examples": "Five synthetic examples only; not real mail excerpts.",
+    "limits": "Rule checks and limited local spot checks cannot establish semantic correctness of all messages."
+  },
+  "passed": true
+}

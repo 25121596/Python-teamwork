@@ -1,0 +1,38 @@
+{
+  "scope": "full",
+  "cache_sha256": "16ad78a28dfda98b62608ab7dd50a351ebe5890c7452ee3c185f8a32ae668a01",
+  "checks": {
+    "parser_source_matches_generation": true,
+    "all_input_ids_accounted": true,
+    "input_output_counts_match": true,
+    "cache_checksum_matches_summary": true,
+    "manifest_checksum_matches_summary": true,
+    "status_partition_matches_summary": true,
+    "class_counts_match_summary": true,
+    "usable_isolated_ledger": true,
+    "retained_character_totals_match": true,
+    "attempt_character_totals_match": true,
+    "attempt_aggregate_ratio_matches": true,
+    "no_parser_errors": true,
+    "all_row_checks_pass": true
+  },
+  "parser_source_sha256": "7227cc26773af3bc3cfa05c62410e947c3d91c49b723bc1d43ed208384ec7a29",
+  "row_violation_counts": {},
+  "rule_review": {
+    "method": "Top 20 per class by status/warnings/recovery/defects/replacement ratio, fixed random tie breaks.",
+    "limitation": "Rule-based metadata review; not a claim of semantic correctness or comprehensive anonymization.",
+    "selected_counts": {
+      "ham": 20,
+      "spam": 20
+    },
+    "selected_status_counts": {
+      "ham": {
+        "subject_only": 20
+      },
+      "spam": {
+        "subject_only": 20
+      }
+    }
+  },
+  "passed": true
+}
