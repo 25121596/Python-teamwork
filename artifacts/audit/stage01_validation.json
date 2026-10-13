@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-13",
+  "checks": {
+    "outside_working_directory": true,
+    "invalid_config_returns_nonzero": true,
+    "data_root_environment_override": true,
+    "chinese_segmentation": true,
+    "html_text_extraction": true,
+    "sparse_text_vectorization": true,
+    "plot_rendering": true,
+    "dependency_snapshot_fully_pinned": true,
+    "dataset_inside_repository_rejected": true,
+    "private_and_generated_files_ignored": true,
+    "pip_dependency_consistency": true,
+    "dependency_snapshot_matches_installation": true
+  },
+  "locked_distributions": 48,
+  "passed": true,
+  "scope": "Environment integration checks only; no real mail parsing or model training."
+}

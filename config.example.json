@@ -1,0 +1,15 @@
+{
+  "data_root": "../数据集/最终数据集/题6_中文垃圾邮件_trec06c/trec06c",
+  "index_file": "full/index",
+  "labels": {
+    "ham": 0,
+    "spam": 1
+  },
+  "random_state": 42,
+  "split_ratios": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "artifacts_dir": "artifacts"
+}

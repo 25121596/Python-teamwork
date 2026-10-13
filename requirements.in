@@ -1,0 +1,10 @@
+# Direct project dependencies. requirements.txt records the validated versions.
+numpy
+pandas
+scikit-learn
+jieba
+beautifulsoup4
+matplotlib
+seaborn
+joblib
+ipykernel

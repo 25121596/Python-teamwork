@@ -1,0 +1,49 @@
+# Python environment and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Local configuration and credentials
+.env
+.env.*
+config.local.json
+*.pem
+*.key
+
+# Raw mail corpora and archives remain local
+/data/
+/dataset/
+/datasets/
+/数据集/
+**/trec06c/
+**/题6_中文垃圾邮件_trec06c/
+*.zip
+*.7z
+*.rar
+*.eml
+__MACOSX/
+._*
+
+# Mail-text and model caches; retain directory placeholders
+/artifacts/processed/*
+!/artifacts/processed/.gitkeep
+/artifacts/models/*
+!/artifacts/models/.gitkeep
+
+# Local logs, notebook executions and temporary files
+*.log
+*.tmp
+*.temp
+~$*
+.DS_Store
+Thumbs.db
+
+# Local IDE settings
+.idea/
+.vscode/
