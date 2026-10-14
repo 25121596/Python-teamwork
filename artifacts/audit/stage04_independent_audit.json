@@ -1,0 +1,134 @@
+{
+  "scope": "Independent aggregate-only audit of dedup_ledger.csv and public split CSVs; no message bodies read. Signature equality was tested only within each named column.",
+  "counts": {
+    "ledger_rows": 64620,
+    "unique_mail_ids": 64620,
+    "disposition_counts": {
+      "retained": 33988,
+      "duplicate": 30632
+    },
+    "disposition_by_label": {
+      "ham": {
+        "retained": 21411,
+        "duplicate": 355
+      },
+      "spam": {
+        "retained": 12577,
+        "duplicate": 30277
+      }
+    },
+    "representatives": 33988,
+    "duplicate_rows": 30632,
+    "development_rows": 400,
+    "development_retained": 384,
+    "development_duplicate": 16
+  },
+  "duplicate_link_checks": {
+    "missing_or_text_mismatched_representative": 0,
+    "split_mismatched_representative": 0
+  },
+  "signature_groups": {
+    "raw_sha256": {
+      "rows_with_signature": 64620,
+      "unique_keys": 64620,
+      "duplicate_groups": 0,
+      "extra_rows": 0,
+      "mixed_label_groups": 0,
+      "cross_split_groups_among_representatives": 0,
+      "duplicate_group_size_max": 0,
+      "duplicate_group_size_p50": 0,
+      "duplicate_group_size_p95": 0,
+      "duplicate_group_size_p99": 0
+    },
+    "text_sha256": {
+      "rows_with_signature": 64620,
+      "unique_keys": 33988,
+      "duplicate_groups": 5025,
+      "extra_rows": 30632,
+      "mixed_label_groups": 0,
+      "cross_split_groups_among_representatives": 0,
+      "duplicate_group_size_max": 282,
+      "duplicate_group_size_p50": 3,
+      "duplicate_group_size_p95": 23,
+      "duplicate_group_size_p99": 78
+    },
+    "body_sha256": {
+      "rows_with_signature": 63198,
+      "unique_keys": 30251,
+      "duplicate_groups": 4303,
+      "extra_rows": 32947,
+      "mixed_label_groups": 0,
+      "cross_split_groups_among_representatives": 0,
+      "duplicate_group_size_max": 1409,
+      "duplicate_group_size_p50": 3,
+      "duplicate_group_size_p95": 28,
+      "duplicate_group_size_p99": 91
+    },
+    "ablation_sha256": {
+      "rows_with_signature": 64620,
+      "unique_keys": 33988,
+      "duplicate_groups": 5025,
+      "extra_rows": 30632,
+      "mixed_label_groups": 0,
+      "cross_split_groups_among_representatives": 0,
+      "duplicate_group_size_max": 282,
+      "duplicate_group_size_p50": 3,
+      "duplicate_group_size_p95": 23,
+      "duplicate_group_size_p99": 78
+    }
+  },
+  "component_audit": {
+    "independently_recomputed_components": 30817,
+    "ledger_group_ids": 30817,
+    "largest_component_representative_count": 432,
+    "components_not_one_ledger_group": 0,
+    "ledger_groups_not_one_computed_component": 0,
+    "cross_split_components": 0,
+    "development_components": 372,
+    "development_components_not_train": 0,
+    "forced_train_components": 372,
+    "forced_train_representatives": 1738,
+    "forced_components_not_train": 0
+  },
+  "splits": {
+    "train": {
+      "records": 23792,
+      "label_counts": {
+        "ham": 14988,
+        "spam": 8804
+      },
+      "groups": 21609
+    },
+    "validation": {
+      "records": 5099,
+      "label_counts": {
+        "ham": 3212,
+        "spam": 1887
+      },
+      "groups": 4604
+    },
+    "test": {
+      "records": 5097,
+      "label_counts": {
+        "ham": 3211,
+        "spam": 1886
+      },
+      "groups": 4604
+    }
+  },
+  "checks": {
+    "ledger_record_count_matches_unique_mail_ids": true,
+    "disposition_partition_complete": true,
+    "duplicate_representatives_exist_and_match_text": true,
+    "duplicate_split_matches_representative": true,
+    "public_split_ids_exactly_retained_representatives": true,
+    "public_labels_match_ledger": true,
+    "ledger_split_matches_public": true,
+    "computed_components_and_ledger_groups_are_same_partition": true,
+    "no_component_crosses_public_splits": true,
+    "all_development_components_are_train": true,
+    "all_forced_components_are_train": true,
+    "all_same_key_groups_are_single_split": true
+  },
+  "all_checks_passed": true
+}

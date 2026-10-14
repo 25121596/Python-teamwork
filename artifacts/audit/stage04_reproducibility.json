@@ -1,0 +1,13 @@
+{
+  "method": "Reverse original cache row order and representative order; replay grouping and assignment using checksum-protected ledger raw/precontact signatures, without rereading original mail.",
+  "input_records": 64620,
+  "representatives": 33988,
+  "checks": {
+    "dedup_summary_identical": true,
+    "train_byte_identical": true,
+    "validation_byte_identical": true,
+    "test_byte_identical": true,
+    "private_ledger_byte_identical": true
+  },
+  "passed": true
+}

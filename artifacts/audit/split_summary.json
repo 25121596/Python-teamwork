@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "policy_version": "1.0",
+  "split_policy_source_sha256": "b76e317856afeb0db8c32a923b8266c5fa09638d2392dcfeb7224b1ff3d9e52d",
+  "input_provenance": {
+    "cleaning_cache_sha256": "16ad78a28dfda98b62608ab7dd50a351ebe5890c7452ee3c185f8a32ae668a01",
+    "raw_source_digest": "ca1b876275dc9e1f979e2f430b5fd6062e85e4f7deb3f41a1dce55ca7df9d0df",
+    "canonical_manifest_sha256": "59155ca6e1b9abd3104efeed64de869292a0799403d690125abbc2be6022ff99",
+    "development_sample_sha256": "ad69970bcdb1266c2a2adf428c0fac6728cc5aaeeef32735d70df55784fb607c",
+    "parser_source_sha256": "7227cc26773af3bc3cfa05c62410e947c3d91c49b723bc1d43ed208384ec7a29"
+  },
+  "random_state": 42,
+  "target_ratios": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "deduplication": {
+    "input_records": 64620,
+    "disposition_counts": {
+      "duplicate": 30632,
+      "retained": 33988
+    },
+    "by_label": {
+      "ham": {
+        "retained": 21411,
+        "duplicate": 355,
+        "conflict": 0,
+        "unusable": 0,
+        "input": 21766
+      },
+      "spam": {
+        "retained": 12577,
+        "duplicate": 30277,
+        "conflict": 0,
+        "unusable": 0,
+        "input": 42854
+      }
+    },
+    "signature_audits": {
+      "raw_sha256": {
+        "records_with_signature": 64620,
+        "unique_groups": 64620,
+        "duplicate_groups": 0,
+        "records_in_duplicate_groups": 0,
+        "duplicate_extra_records": 0,
+        "mixed_label_groups": 0,
+        "records_in_mixed_label_groups": 0,
+        "duplicate_group_sizes": {
+          "groups": 0,
+          "max": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0
+        }
+      },
+      "text_sha256": {
+        "records_with_signature": 64620,
+        "unique_groups": 33988,
+        "duplicate_groups": 5025,
+        "records_in_duplicate_groups": 35657,
+        "duplicate_extra_records": 30632,
+        "mixed_label_groups": 0,
+        "records_in_mixed_label_groups": 0,
+        "duplicate_group_sizes": {
+          "groups": 5025,
+          "max": 282,
+          "p50": 3,
+          "p95": 23,
+          "p99": 78
+        }
+      },
+      "body_sha256": {
+        "records_with_signature": 63198,
+        "unique_groups": 30251,
+        "duplicate_groups": 4303,
+        "records_in_duplicate_groups": 37250,
+        "duplicate_extra_records": 32947,
+        "mixed_label_groups": 0,
+        "records_in_mixed_label_groups": 0,
+        "duplicate_group_sizes": {
+          "groups": 4303,
+          "max": 1409,
+          "p50": 3,
+          "p95": 28,
+          "p99": 91
+        }
+      },
+      "ablation_sha256": {
+        "records_with_signature": 64620,
+        "unique_groups": 33988,
+        "duplicate_groups": 5025,
+        "records_in_duplicate_groups": 35657,
+        "duplicate_extra_records": 30632,
+        "mixed_label_groups": 0,
+        "records_in_mixed_label_groups": 0,
+        "duplicate_group_sizes": {
+          "groups": 5025,
+          "max": 282,
+          "p50": 3,
+          "p95": 23,
+          "p99": 78
+        }
+      }
+    },
+    "leakage_groups_before_dedup": {
+      "groups": 30817,
+      "max": 1409,
+      "p50": 1,
+      "p95": 5,
+      "p99": 21
+    },
+    "leakage_groups_after_dedup": {
+      "groups": 30817,
+      "max": 432,
+      "p50": 1,
+      "p95": 1,
+      "p99": 3
+    },
+    "mixed_label_retained_leakage_groups": 0,
+    "forced_training_groups": 372,
+    "forced_training_representatives": 1738,
+    "development_input_records": 400,
+    "development_dispositions": {
+      "duplicate": 16,
+      "retained": 384
+    },
+    "contact_mask_audit": {
+      "reconstructable_body_records": 63198,
+      "body_groups_merging_distinct_precontact_surfaces": 166,
+      "records_in_those_groups": 5325,
+      "scope": "Body only; precontact surfaces already normalize HTML, Unicode and whitespace. Not a causal count of all final-text duplicate removals."
+    }
+  },
+  "allocation": {
+    "train": {
+      "records": 23792,
+      "fraction": 0.7000117688595975,
+      "target_fraction": 0.7,
+      "fraction_deviation": 1.1768859597527381e-05,
+      "groups": 21609,
+      "label_counts": {
+        "ham": 14988,
+        "spam": 8804
+      },
+      "target_label_counts": {
+        "ham": 14988,
+        "spam": 8804
+      },
+      "spam_fraction": 0.37004034969737726
+    },
+    "validation": {
+      "records": 5099,
+      "fraction": 0.15002353771919502,
+      "target_fraction": 0.15,
+      "fraction_deviation": 2.3537719195027007e-05,
+      "groups": 4604,
+      "label_counts": {
+        "ham": 3212,
+        "spam": 1887
+      },
+      "target_label_counts": {
+        "ham": 3212,
+        "spam": 1887
+      },
+      "spam_fraction": 0.3700725632476956
+    },
+    "test": {
+      "records": 5097,
+      "fraction": 0.1499646934212075,
+      "target_fraction": 0.15,
+      "fraction_deviation": -3.530657879249888e-05,
+      "groups": 4604,
+      "label_counts": {
+        "ham": 3211,
+        "spam": 1886
+      },
+      "target_label_counts": {
+        "ham": 3211,
+        "spam": 1886
+      },
+      "spam_fraction": 0.37002158132234647
+    }
+  },
+  "output_sha256": {
+    "artifacts/splits/train.csv": "3d98f3aaa8f889e0c189f78ec8cf7b79ccee82b22b830df75e716583be86da77",
+    "artifacts/splits/validation.csv": "75b163c8db3c5d55334199e1b1c9cb87abee0e4a6722bec3617fda6c9d6dc003",
+    "artifacts/splits/test.csv": "3a4410b736ff115ac812bc97b32d629796cdd055059ae3edc7617735dbc82683",
+    "artifacts/processed/dedup_ledger.csv": "d1b7e4c7dcfba05d0f5c99c0288b74d2a5a75a605fd4eeba56a730e81201663f"
+  },
+  "policy": {
+    "remove": "One representative per exact final text; prefer development membership, then lexicographic mail_id.",
+    "conflicts": "Isolate every row sharing a cross-label raw-byte or final-text key; do not treat body-only mixed labels as a conflict.",
+    "group": "Connected components of equal raw bytes, final text, usable body or unstripped-HTML ablation text, with field-specific keys.",
+    "split": "Force development-exposed components into train, then descending group size and seeded SHA ties; greedily minimize normalized per-class count error.",
+    "public": "ID, label and split only; content signatures, linkage groups and duplicate mappings remain private."
+  },
+  "limitations": [
+    "Exact equality does not detect all near-duplicate advertising templates.",
+    "Holdouts describe unique normalized texts in a historical corpus, not natural inbox traffic.",
+    "Fixed group and development constraints may cause target-ratio deviations."
+  ],
+  "passed": true
+}

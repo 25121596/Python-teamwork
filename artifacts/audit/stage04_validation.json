@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-14",
+  "checks": {
+    "full_independent_validator_passed": true,
+    "luna_aggregate_audit_passed": true,
+    "reverse_order_real_corpus_replay_passed": true,
+    "synthetic_and_regression_tests_passed": true,
+    "private_artifacts_configuration_and_environment_ignored": true,
+    "private_directory_tracks_placeholder_only": true,
+    "public_json_is_aggregate_only": true,
+    "public_csv_contains_valid_id_label_split_only": true,
+    "frozen_metadata_has_lf_git_attributes": true,
+    "staged_checkout_filters_preserve_actual_frozen_bytes": true,
+    "public_json_line_endings_are_lf": true
+  },
+  "unittest": {
+    "tests_run": 70,
+    "executed_passed": 69,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "skip_details": [
+      {
+        "test": "test_symlink_outside_data_is_rejected (test_index_audit.IndexAuditTests.test_symlink_outside_data_is_rejected)",
+        "reason": "Symlink creation is unavailable on this host."
+      }
+    ],
+    "passed": true
+  },
+  "independent_validator_check_count": 24,
+  "split_policy_source_sha256": "b76e317856afeb0db8c32a923b8266c5fa09638d2392dcfeb7224b1ff3d9e52d",
+  "validator_source_sha256": "0e28af4a517062fd577bd78e4988fa3b5acf933b1cf87ed9907879e3e83d5fae",
+  "artifacts_sha256": {
+    "audit/split_summary.json": "9729ee16c180bb77d166c6943fcff3754230c70bd8ccdd473a0e578d75977048",
+    "audit/split_validation.json": "eff2bffa6bacaf3e75507fd3f5d496d4925bf0adcdd9729a86eb1a9ad5e0f0eb",
+    "audit/stage04_independent_audit.json": "120a954c698fb9e4e040b1e6a62073f5fb71868cea179aca8aed971020b6674e",
+    "audit/stage04_reproducibility.json": "2ba9c3ac7d56f98e62016c6e78d0c9d36216e205c5913300d7a07b658b85d29d",
+    "splits/train.csv": "3d98f3aaa8f889e0c189f78ec8cf7b79ccee82b22b830df75e716583be86da77",
+    "splits/validation.csv": "75b163c8db3c5d55334199e1b1c9cb87abee0e4a6722bec3617fda6c9d6dc003",
+    "splits/test.csv": "3a4410b736ff115ac812bc97b32d629796cdd055059ae3edc7617735dbc82683",
+    "processed/dedup_ledger.csv": "d1b7e4c7dcfba05d0f5c99c0288b74d2a5a75a605fd4eeba56a730e81201663f"
+  },
+  "reproducibility_scope": "Reverse original cache row order and representative order; replay grouping and assignment using checksum-protected ledger raw/precontact signatures, without rereading original mail.",
+  "not_run": [
+    "TF-IDF fitting",
+    "Model training",
+    "Final classification evaluation"
+  ],
+  "passed": true
+}

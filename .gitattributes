@@ -1,0 +1,9 @@
+# Frozen stage-four metadata uses canonical LF bytes on every checkout.
+/artifacts/splits/train.csv text eol=lf
+/artifacts/splits/validation.csv text eol=lf
+/artifacts/splits/test.csv text eol=lf
+/artifacts/audit/split_summary.json text eol=lf
+/artifacts/audit/split_validation.json text eol=lf
+/artifacts/audit/stage04_validation.json text eol=lf
+/artifacts/audit/stage04_independent_audit.json text eol=lf
+/artifacts/audit/stage04_reproducibility.json text eol=lf
