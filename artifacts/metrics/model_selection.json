@@ -1,0 +1,387 @@
+{
+  "schema_version": 1,
+  "model_source_sha256": "8ad59fee8f791fde3c705c617403dbf7017c2c147f8aae4c180ecfbaec5f5244",
+  "input_provenance": {
+    "feature_summary_sha256": "6c48a8b0bf38fc055124e1632fa5ddad6389d06359d79a8e31c88b390b41fe06",
+    "feature_validation_sha256": "f481858aacd6d7a1d531d2f1800d5db163fc6029ebb2f463dfccb4a21636d7fe",
+    "feature_source_sha256": "bfd172d7c43228c59c78bec00b333213b26e7c9b7141eeb72d48186285b56a29",
+    "fitted_feature_state": {
+      "vocabulary_sha256": "e09d7391545478e6e623deef31c9222601ca9e86144438a4803ceb95eeb43b9c",
+      "idf_sha256": "489c0a3d19d870110625dec9d22bf4cc2b1694c5132e4a1f89c78ddbdf5792ee"
+    },
+    "split_csv_sha256": {
+      "train": "3d98f3aaa8f889e0c189f78ec8cf7b79ccee82b22b830df75e716583be86da77",
+      "validation": "75b163c8db3c5d55334199e1b1c9cb87abee0e4a6722bec3617fda6c9d6dc003"
+    },
+    "private_input_sha256": {
+      "artifacts/models/tfidf_pipeline.joblib": "d58d52dcaecb9c7b3f5bbe2bf0e41a15164ade58c7df5e3cf80bbc9cee0c2cd7",
+      "artifacts/processed/features/row_order.json": "16d3b4044433c40c95002abd8643957ba8eb8d44490a92e31bdd66a53de12ada",
+      "artifacts/processed/features/train.npz": "21a84acd14670fe943a036e248d34a833e94ea6355a3141d95a40beaff9f03f1",
+      "artifacts/processed/features/validation.npz": "7f6f96eca8531ef867417337fe9864b8b5edb4683b9f1beef65c71a6fb519ba5"
+    },
+    "consumed_splits": [
+      "train",
+      "validation"
+    ]
+  },
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit_learn": "1.9.1",
+    "joblib": "1.6.0",
+    "threadpoolctl": "3.7.0"
+  },
+  "scope": {
+    "fit": "train_only",
+    "selection": "validation_only",
+    "test_predictions_computed": false,
+    "test_metrics_computed": false
+  },
+  "decision_rule": "Unmodified estimator.predict; binary LR decision score cutoff 0 (probability 0.5), NB maximum posterior; no threshold tuning.",
+  "thread_limit": 1,
+  "train_rows": 23792,
+  "validation_rows": 5099,
+  "feature_columns": 50000,
+  "label_mapping": {
+    "ham": 0,
+    "spam": 1
+  },
+  "training_label_counts": {
+    "ham": 14988,
+    "spam": 8804
+  },
+  "selection_policy": {
+    "eligible_rows": "exclude family='majority' and rows where converged is not true",
+    "ranking": [
+      {
+        "metric": "macro_f1",
+        "order": "descending"
+      },
+      {
+        "metric": "ham_false_positive_rate",
+        "order": "ascending"
+      },
+      {
+        "metric": "spam_recall",
+        "order": "descending"
+      },
+      {
+        "metric": "candidate_id",
+        "order": "ascending_lexical"
+      }
+    ],
+    "precision": "use exact unrounded metric values"
+  },
+  "experiments": [
+    {
+      "candidate_id": "majority",
+      "family": "majority",
+      "parameters": {},
+      "estimator_parameters": {
+        "constant": null,
+        "random_state": null,
+        "strategy": "most_frequent"
+      },
+      "converged": true,
+      "warning_categories": [],
+      "n_iter": [],
+      "fit_seconds": 0.009650200001487974,
+      "predict_seconds": 6.079999729990959e-05,
+      "metrics": {
+        "n": 5099,
+        "ham_support": 3212,
+        "spam_support": 1887,
+        "confusion_matrix": {
+          "tn": 3212,
+          "fp": 0,
+          "fn": 1887,
+          "tp": 0
+        },
+        "accuracy": 0.6299274367523043,
+        "spam_precision": 0.0,
+        "spam_recall": 0.0,
+        "ham_f1": 0.7729515100469256,
+        "spam_f1": 0.0,
+        "macro_f1": 0.3864757550234628,
+        "ham_false_positive_rate": 0.0
+      }
+    },
+    {
+      "candidate_id": "nb_alpha_1",
+      "family": "multinomial_nb",
+      "parameters": {
+        "alpha": 1.0
+      },
+      "estimator_parameters": {
+        "alpha": 1.0,
+        "class_prior": null,
+        "fit_prior": true,
+        "force_alpha": true
+      },
+      "converged": true,
+      "warning_categories": [],
+      "n_iter": [],
+      "fit_seconds": 0.009518999999272637,
+      "predict_seconds": 0.003680900001199916,
+      "metrics": {
+        "n": 5099,
+        "ham_support": 3212,
+        "spam_support": 1887,
+        "confusion_matrix": {
+          "tn": 3077,
+          "fp": 135,
+          "fn": 107,
+          "tp": 1780
+        },
+        "accuracy": 0.952539713669347,
+        "spam_precision": 0.9295039164490861,
+        "spam_recall": 0.9432962374138845,
+        "ham_f1": 0.9621638524077549,
+        "spam_f1": 0.9363492898474487,
+        "macro_f1": 0.9492565711276018,
+        "ham_false_positive_rate": 0.04202988792029888
+      }
+    },
+    {
+      "candidate_id": "lr_C_1",
+      "family": "logistic_regression",
+      "parameters": {
+        "C": 1.0
+      },
+      "estimator_parameters": {
+        "C": 1.0,
+        "class_weight": null,
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 2000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 42,
+        "solver": "liblinear",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "converged": true,
+      "warning_categories": [],
+      "n_iter": [
+        7
+      ],
+      "fit_seconds": 0.3980723999993643,
+      "predict_seconds": 0.0016701000022294465,
+      "metrics": {
+        "n": 5099,
+        "ham_support": 3212,
+        "spam_support": 1887,
+        "confusion_matrix": {
+          "tn": 3195,
+          "fp": 17,
+          "fn": 58,
+          "tp": 1829
+        },
+        "accuracy": 0.9852912335752109,
+        "spam_precision": 0.9907908992416035,
+        "spam_recall": 0.969263381028087,
+        "ham_f1": 0.988399071925754,
+        "spam_f1": 0.9799089204393249,
+        "macro_f1": 0.9841539961825394,
+        "ham_false_positive_rate": 0.005292652552926526
+      }
+    },
+    {
+      "candidate_id": "nb_alpha_0.1",
+      "family": "multinomial_nb",
+      "parameters": {
+        "alpha": 0.1
+      },
+      "estimator_parameters": {
+        "alpha": 0.1,
+        "class_prior": null,
+        "fit_prior": true,
+        "force_alpha": true
+      },
+      "converged": true,
+      "warning_categories": [],
+      "n_iter": [],
+      "fit_seconds": 0.010189799999352545,
+      "predict_seconds": 0.003456399997958215,
+      "metrics": {
+        "n": 5099,
+        "ham_support": 3212,
+        "spam_support": 1887,
+        "confusion_matrix": {
+          "tn": 3086,
+          "fp": 126,
+          "fn": 84,
+          "tp": 1803
+        },
+        "accuracy": 0.9588154540105903,
+        "spam_precision": 0.9346811819595645,
+        "spam_recall": 0.9554848966613673,
+        "ham_f1": 0.9670949545596991,
+        "spam_f1": 0.9449685534591195,
+        "macro_f1": 0.9560317540094092,
+        "ham_false_positive_rate": 0.03922789539227895
+      }
+    },
+    {
+      "candidate_id": "nb_alpha_0.5",
+      "family": "multinomial_nb",
+      "parameters": {
+        "alpha": 0.5
+      },
+      "estimator_parameters": {
+        "alpha": 0.5,
+        "class_prior": null,
+        "fit_prior": true,
+        "force_alpha": true
+      },
+      "converged": true,
+      "warning_categories": [],
+      "n_iter": [],
+      "fit_seconds": 0.0078071000025374815,
+      "predict_seconds": 0.003271499997936189,
+      "metrics": {
+        "n": 5099,
+        "ham_support": 3212,
+        "spam_support": 1887,
+        "confusion_matrix": {
+          "tn": 3077,
+          "fp": 135,
+          "fn": 92,
+          "tp": 1795
+        },
+        "accuracy": 0.9554814669543048,
+        "spam_precision": 0.9300518134715026,
+        "spam_recall": 0.9512453630100689,
+        "ham_f1": 0.9644256386146373,
+        "spam_f1": 0.9405292114225832,
+        "macro_f1": 0.9524774250186102,
+        "ham_false_positive_rate": 0.04202988792029888
+      }
+    },
+    {
+      "candidate_id": "lr_C_0.5",
+      "family": "logistic_regression",
+      "parameters": {
+        "C": 0.5
+      },
+      "estimator_parameters": {
+        "C": 0.5,
+        "class_weight": null,
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 2000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 42,
+        "solver": "liblinear",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "converged": true,
+      "warning_categories": [],
+      "n_iter": [
+        6
+      ],
+      "fit_seconds": 0.26566710000042804,
+      "predict_seconds": 0.0015471000006073155,
+      "metrics": {
+        "n": 5099,
+        "ham_support": 3212,
+        "spam_support": 1887,
+        "confusion_matrix": {
+          "tn": 3188,
+          "fp": 24,
+          "fn": 71,
+          "tp": 1816
+        },
+        "accuracy": 0.9813688958619338,
+        "spam_precision": 0.9869565217391304,
+        "spam_recall": 0.9623741388447271,
+        "ham_f1": 0.9853191160562509,
+        "spam_f1": 0.9745103300241481,
+        "macro_f1": 0.9799147230401994,
+        "ham_false_positive_rate": 0.007471980074719801
+      }
+    },
+    {
+      "candidate_id": "lr_C_2",
+      "family": "logistic_regression",
+      "parameters": {
+        "C": 2.0
+      },
+      "estimator_parameters": {
+        "C": 2.0,
+        "class_weight": null,
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 2000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 42,
+        "solver": "liblinear",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "converged": true,
+      "warning_categories": [],
+      "n_iter": [
+        7
+      ],
+      "fit_seconds": 0.33646430000226246,
+      "predict_seconds": 0.0014498999989882577,
+      "metrics": {
+        "n": 5099,
+        "ham_support": 3212,
+        "spam_support": 1887,
+        "confusion_matrix": {
+          "tn": 3201,
+          "fp": 11,
+          "fn": 47,
+          "tp": 1840
+        },
+        "accuracy": 0.9886252206314964,
+        "spam_precision": 0.9940572663425176,
+        "spam_recall": 0.9750927397986221,
+        "ham_f1": 0.9910216718266254,
+        "spam_f1": 0.9844836811128946,
+        "macro_f1": 0.98775267646976,
+        "ham_false_positive_rate": 0.003424657534246575
+      }
+    }
+  ],
+  "selected_candidate_id": "lr_C_2",
+  "family_winners": {
+    "multinomial_nb": "nb_alpha_0.1",
+    "logistic_regression": "lr_C_2"
+  },
+  "selection_status": "Validation candidate for stage seven; final cleaning/model choice remains pending, no train+validation refit.",
+  "private_output_sha256": {
+    "artifacts/models/stage06/majority.joblib": "e7e946ad8b7707741152cfd19c8f26b32f92e20a9b120f3d07d009ee4e71bf09",
+    "artifacts/models/stage06/nb_alpha_1.joblib": "1f70366a42eab49a77ed88cf8cb6259ef0bca6946b0a8996ef65a9e2cd0ebeef",
+    "artifacts/models/stage06/lr_C_1.joblib": "0c0c81edd9a86466ace2f3b4a35fe3d8f25d0b9f0c6a6d80615a4177e8a07844",
+    "artifacts/models/stage06/nb_alpha_0.1.joblib": "259522a59e3b1830172ec9669bc1f33b584d897c56d02e5c436170a7f7a8ad3f",
+    "artifacts/models/stage06/nb_alpha_0.5.joblib": "6ddd54ac3aa10da3b7cd95fc49b9407f92d603a28590be1366efa7639ba2e751",
+    "artifacts/models/stage06/lr_C_0.5.joblib": "54ba8785942f9f13cb456e0c3b87feaea61ea1e49789c0721db14570e4f0eee4",
+    "artifacts/models/stage06/lr_C_2.joblib": "c053c06262eab50e9f7e47cddbda61f0644354d663e4c0217deff60e969d113c",
+    "artifacts/models/stage06/selected_pipeline.joblib": "e569b99cc7d265af82b46a8fd172b419dac89f7860b268b694cd80b4868a876f",
+    "artifacts/processed/stage06/validation_predictions.npz": "c94186459ce79a99a3fde7d481df99ca1601c1a9bbf7fac407b554ed99df004f"
+  },
+  "public_output_sha256": {
+    "artifacts/metrics/stage06_validation.csv": "27ff40ecf1feb4e812e73487d437469d2e7c65b279dc6ccebbb859e5e00af4ed",
+    "artifacts/figures/stage06_validation_comparison.png": "e9843539e279fc92b6cc90b46f3db07e2731aa6f454efa4225c18a41577c1ff5"
+  },
+  "timing_scope": "Per-estimator fit and validation prediction wall time; excludes input verification, TF-IDF building, serialization and plotting; machine-specific.",
+  "privacy": "Only parameters, aggregate metrics and checksums are public; fitted models, vocabulary and per-mail validation predictions stay local.",
+  "passed": true
+}

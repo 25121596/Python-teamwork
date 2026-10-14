@@ -15,3 +15,9 @@
 /artifacts/audit/stage05_validation.json text eol=lf
 /config/stopwords_zh.txt text eol=lf
 /config/public_terms_zh.txt text eol=lf
+
+# Stage-six metrics and validation retain their published checksum bytes.
+/artifacts/metrics/model_selection.json text eol=lf
+/artifacts/metrics/stage06_validation.csv text eol=lf
+/artifacts/audit/model_validation.json text eol=lf
+/artifacts/audit/stage06_validation.json text eol=lf

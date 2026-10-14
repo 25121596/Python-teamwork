@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-14",
+  "scope": "Stage six acceptance of validation-only model selection; no final-test classifier scores.",
+  "checks": {
+    "unit_test_suite_passed": true,
+    "independent_model_validation_passed": true,
+    "summary_and_validator_fingerprints_match": true,
+    "seven_predeclared_candidates_used": true,
+    "test_predictions_and_metrics_not_computed": true,
+    "strong_actual_input_read_guard_passed": true,
+    "all_model_outputs_match_published_checksums": true,
+    "csv_metrics_counts_and_timing_match_summary": true,
+    "stage_markdown_metrics_counts_and_iterations_match": true,
+    "png_integrity_and_dimensions_valid": true,
+    "png_visually_reviewed_readable_chinese_and_units": true,
+    "public_json_has_no_per_mail_text_vocabulary_or_prediction_fields": true,
+    "private_models_predictions_and_logs_are_git_ignored": true,
+    "no_private_model_or_processed_files_tracked": true,
+    "public_fingerprint_files_keep_lf_checkout_bytes": true,
+    "updated_markdown_relative_links_resolve": true,
+    "pinned_environment_pip_check_passed": true,
+    "tracked_diff_has_no_whitespace_errors": true
+  },
+  "unit_tests": {
+    "run": 110,
+    "passed": 109,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0,
+    "skip_reasons": [
+      "Symlink creation is unavailable on this host."
+    ]
+  },
+  "independent_model_checks": {
+    "global": 17,
+    "per_candidate_total": 91
+  },
+  "input_read_guard": {
+    "apis": [
+      "builtins.open",
+      "io.open",
+      "Path.open"
+    ],
+    "forbidden_inputs": [
+      "artifacts/processed/cleaned_mail.jsonl",
+      "artifacts/processed/features/test.npz",
+      "artifacts/splits/test.csv"
+    ],
+    "forbidden_input_reads": 0
+  },
+  "selected_candidate_id": "lr_C_2",
+  "family_winners": {
+    "multinomial_nb": "nb_alpha_0.1",
+    "logistic_regression": "lr_C_2"
+  },
+  "model_source_sha256": "8ad59fee8f791fde3c705c617403dbf7017c2c147f8aae4c180ecfbaec5f5244",
+  "model_selection_summary_sha256": "87113c58794252eb6d251291a3a832aed276dfcb1fea5094cc47eae636e8e35e",
+  "model_validation_sha256": "26532478ac6f2b6e646167626faf686fce9e303b38efba7335c20035db3cc027",
+  "public_figure_dimensions": [
+    2325,
+    1039
+  ],
+  "missing_markdown_links": [],
+  "validation_commands": [
+    ".venv/Scripts/python.exe scripts/train_models.py",
+    ".venv/Scripts/python.exe scripts/check_models.py",
+    ".venv/Scripts/python.exe -m unittest discover -s tests -v",
+    ".venv/Scripts/python.exe -m pip check",
+    "git diff --check"
+  ],
+  "limitations": [
+    "Single-machine validation; other group members must reproduce locally.",
+    "Selection uses validation scores; final test classification is deferred to stage eight.",
+    "Wall times vary by machine; repeated runs need not reproduce timing or joblib byte hashes."
+  ],
+  "passed": true
+}

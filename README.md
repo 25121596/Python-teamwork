@@ -10,7 +10,7 @@
 
 **当前范围**
 
-已完成前五步：环境、索引、全量清洗、去重冻结划分，以及 EDA/分词/TF-IDF。保留 33,988 封代表，训练/验证/测试为 23,792 / 5,099 / 5,097，三套特征共用训练侧学到的 50,000 维词表。五张图与聚合证据公开，正文、去重账本、完整词频、特征管线和矩阵留在本地。下一步为基线与两种分类模型比较。
+已完成前六步：环境、索引、全量清洗、去重冻结划分、EDA/分词/TF-IDF，以及基线和两种模型比较。保留 33,988 封代表，训练/验证/测试为 23,792 / 5,099 / 5,097，三套特征共用训练侧学到的 50,000 维词表。七次验证实验选出 LR C=2（验证 macro-F1 98.78%）；下一步做 HTML 清洗对照，最终测试分类成绩尚未计算。公开聚合证据与图表，正文、去重账本、完整词频、矩阵、拟合模型与逐封预测留在本地。
 
 建议主线：邮件解析清洗 → 内容去重与固定划分 → 探索分析 → jieba 与 TF-IDF → 朴素贝叶斯及逻辑回归 → 评估解释。
 
@@ -74,7 +74,7 @@ $env:TREC06C_ROOT = 'D:/课程数据/trec06c'
 
 安全摘要写入 `artifacts/audit/environment_check.json`，不含个人绝对路径、收发件地址或邮件正文。可通过 `--config` 和 `--output` 指定其他配置或输出；相对参数均以项目根目录为基准。
 
-目前可执行入口包括环境检查、索引审计、邮件解析清洗、去重划分及 EDA/特征构建与核验。后续为模型比较、清洗对照和最终评估；分类器与最终评估脚本尚未实现。
+目前可执行入口包括环境检查、索引审计、邮件解析清洗、去重划分、EDA/特征，以及验证集模型比较与核验。后续为清洗对照和最终评估。
 
 **第二阶段索引审计**
 
@@ -180,7 +180,20 @@ jieba 采用精确模式、HMM=False，固定停用词与词典指纹；保留�
 
 `feature_summary.passed` 表示构建完成；独立验收以 `feature_validation` 为准。异常时旧产物可能仍存在，使用缓存前必须核对来源与指纹。手动重载 joblib 需要本仓库 `src` 模块路径与固定依赖。
 
-图表解释、实际维度与检查结果见 [第五阶段记录](docs/stages/05_探索分析与文本特征.md)，人工示例与公式见 [分词与特征说明](docs/分词与特征说明.md)。当前没有分类器或最终测试成绩。
+图表解释、实际维度与检查结果见 [第五阶段记录](docs/stages/05_探索分析与文本特征.md)，人工示例与公式见 [分词与特征说明](docs/分词与特征说明.md)。
+
+**第六阶段基线与模型比较**
+
+```powershell
+.\.venv\Scripts\python.exe scripts\train_models.py
+.\.venv\Scripts\python.exe scripts\check_models.py
+```
+
+沿用第五步已验证的训练/验证 CSR 特征，先运行多数类、默认 NB 与 LR，再完成 NB alpha=0.1/0.5/1 和 LR C=0.5/1/2 的有限比较。分类器只拟合训练标签，验证集按 macro-F1、正常邮件误报率、spam 召回率的预设顺序选候选，不加载最终测试矩阵或计算其分类指标。
+
+本轮候选为 LR C=2，NB 类内最佳为 alpha=0.1。逐封验证预测和七个分类器、候选完整管线保存在忽略目录；公开 [验证实验表](artifacts/metrics/stage06_validation.csv)、[配置与指标](artifacts/metrics/model_selection.json)、[独立验收](artifacts/audit/model_validation.json) 和比较图。独立脚本新进程重载、按训练集重训、重算验证指标和候选排序；`model_selection.passed` 仅表示构建完成。
+
+复现顺序为第 2—5 步、模型训练、模型独立检查。失败时先解决来源或指纹问题再重跑，旧产物不可直接视为当前有效结果。模型采用固定依赖与单线程限制；耗时仅是本机运行记录。详见 [第六阶段记录](docs/stages/06_基线与两种模型比较.md)。第七步先完成清洗对照，第八步再报告最终测试分类成绩。
 
 **Notebook 使用**
 
@@ -195,15 +208,15 @@ jieba 采用精确模式、HMM=False，固定停用词与词典指纹；保留�
 **项目目录**
 
 ```text
-src/spam_classifier/    可复用的索引审计与邮件解析模块
-scripts/                环境检查、索引审计、清洗与清洗结果检查
+src/spam_classifier/    索引、解析、划分、特征与模型模块
+scripts/                各阶段执行入口和独立核验
 tests/                  人工微型语料的边界测试
 notebooks/              后续探索和展示过程
 artifacts/audit/        聚合质量与环境记录
 artifacts/processed/    本地邮件文本缓存，Git 忽略
-artifacts/splits/       开发样本元数据；后续增加正式数据划分
-artifacts/metrics/      后续聚合模型指标
-artifacts/figures/      后续图表
+artifacts/splits/       开发样本与正式冻结划分元数据
+artifacts/metrics/      聚合验证模型指标与配置
+artifacts/figures/      EDA、词覆盖与验证比较图
 artifacts/models/       本地模型缓存，Git 忽略
 deliverables/           后续 Word、PPT 与汇报材料
 docs/stages/            每阶段的 Markdown 记录
