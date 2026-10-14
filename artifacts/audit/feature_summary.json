@@ -1,0 +1,485 @@
+{
+  "schema_version": 1,
+  "input_provenance": {
+    "cleaning_cache_sha256": "16ad78a28dfda98b62608ab7dd50a351ebe5890c7452ee3c185f8a32ae668a01",
+    "split_policy_source_sha256": "b76e317856afeb0db8c32a923b8266c5fa09638d2392dcfeb7224b1ff3d9e52d",
+    "split_summary_sha256": "9729ee16c180bb77d166c6943fcff3754230c70bd8ccdd473a0e578d75977048",
+    "split_validation_sha256": "eff2bffa6bacaf3e75507fd3f5d496d4925bf0adcdd9729a86eb1a9ad5e0f0eb",
+    "split_csv_sha256": {
+      "train": "3d98f3aaa8f889e0c189f78ec8cf7b79ccee82b22b830df75e716583be86da77",
+      "validation": "75b163c8db3c5d55334199e1b1c9cb87abee0e4a6722bec3617fda6c9d6dc003",
+      "test": "3a4410b736ff115ac812bc97b32d629796cdd055059ae3edc7617735dbc82683"
+    }
+  },
+  "feature_source_sha256": "bfd172d7c43228c59c78bec00b333213b26e7c9b7141eeb72d48186285b56a29",
+  "tokenizer": {
+    "jieba_version": "0.42.1",
+    "dictionary_sha256": "7197c3211ddd98962b036cdf40324d1ea2bfaa12bd028e68faa70111a88e12a8",
+    "stopwords_sha256": "05ec78fe4e279552d15b661a425fc03fad1774dcf919b6b0e0f9f63c57cc14f4",
+    "public_terms_sha256": "68113353f61929dddae38d659b5865953a9802f7649c5cc2cfe6bde1cc6c7156",
+    "stopword_count": 57,
+    "public_term_count": 53,
+    "mode": "accurate",
+    "HMM": false,
+    "max_token_length": 40
+  },
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit_learn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "configuration": {
+    "min_df": 2,
+    "max_df": 1.0,
+    "max_features": 50000,
+    "sublinear_tf": true,
+    "smooth_idf": true,
+    "use_idf": true,
+    "norm": "l2",
+    "lowercase": false,
+    "token_pattern": null
+  },
+  "ngram_range": [
+    1,
+    1
+  ],
+  "dtype": "float64",
+  "fit_scope": "train_only",
+  "matrices": {
+    "train": {
+      "rows": 23792,
+      "columns": 50000,
+      "nnz": 3664007,
+      "density": 0.003080032784129119,
+      "zero_rows": 0,
+      "zero_row_fraction": 0.0,
+      "csr_bytes": 44063256,
+      "format": "csr",
+      "dtype": "float64"
+    },
+    "validation": {
+      "rows": 5099,
+      "columns": 50000,
+      "nnz": 807971,
+      "density": 0.0031691351245342224,
+      "zero_rows": 0,
+      "zero_row_fraction": 0.0,
+      "csr_bytes": 9716052,
+      "format": "csr",
+      "dtype": "float64"
+    },
+    "test": {
+      "rows": 5097,
+      "columns": 50000,
+      "nnz": 815090,
+      "density": 0.0031983127329801844,
+      "zero_rows": 0,
+      "zero_row_fraction": 0.0,
+      "csr_bytes": 9801472,
+      "format": "csr",
+      "dtype": "float64"
+    }
+  },
+  "fitted_state": {
+    "vocabulary_sha256": "e09d7391545478e6e623deef31c9222601ca9e86144438a4803ceb95eeb43b9c",
+    "idf_sha256": "489c0a3d19d870110625dec9d22bf4cc2b1694c5132e4a1f89c78ddbdf5792ee"
+  },
+  "heldout_transform_preserved_fitted_state": true,
+  "training_word_coverage": {
+    "scope": "Training representatives only; each term counted once per mail.",
+    "training_label_counts": {
+      "spam": 8804,
+      "ham": 14988
+    },
+    "unique_token_types_before_tfidf_filter": 122865,
+    "numeric_token_types": 8844,
+    "training_documents_with_numeric_token": 15249,
+    "training_tokenless_documents": 0,
+    "public_term_policy": "Predeclared generic whitelist, at least 20 training documents overall; no full vocabulary or numeric terms published.",
+    "public_term_coverage": [
+      {
+        "term": "urltoken",
+        "ham_documents": 620,
+        "spam_documents": 5324,
+        "ham_coverage": 0.04136642647451294,
+        "spam_coverage": 0.6047251249432076
+      },
+      {
+        "term": "phonetoken",
+        "ham_documents": 534,
+        "spam_documents": 5227,
+        "ham_coverage": 0.03562850280224179,
+        "spam_coverage": 0.5937074057246706
+      },
+      {
+        "term": "公司",
+        "ham_documents": 1111,
+        "spam_documents": 4389,
+        "ham_coverage": 0.07412596744061917,
+        "spam_coverage": 0.4985233984552476
+      },
+      {
+        "term": "emailtoken",
+        "ham_documents": 765,
+        "spam_documents": 4450,
+        "ham_coverage": 0.05104083266613291,
+        "spam_coverage": 0.5054520672421626
+      },
+      {
+        "term": "工作",
+        "ham_documents": 2827,
+        "spam_documents": 1876,
+        "ham_coverage": 0.18861756071523886,
+        "spam_coverage": 0.21308496138119037
+      },
+      {
+        "term": "电话",
+        "ham_documents": 1349,
+        "spam_documents": 3238,
+        "ham_coverage": 0.09000533760341607,
+        "spam_coverage": 0.3677873693775557
+      },
+      {
+        "term": "时间",
+        "ham_documents": 2404,
+        "spam_documents": 2054,
+        "ham_coverage": 0.1603949826527889,
+        "spam_coverage": 0.23330304407087687
+      },
+      {
+        "term": "问题",
+        "ham_documents": 2819,
+        "spam_documents": 1596,
+        "ham_coverage": 0.18808380037363223,
+        "spam_coverage": 0.18128123580190822
+      },
+      {
+        "term": "服务",
+        "ham_documents": 261,
+        "spam_documents": 3527,
+        "ham_coverage": 0.017413931144915934,
+        "spam_coverage": 0.4006133575647433
+      },
+      {
+        "term": "产品",
+        "ham_documents": 252,
+        "spam_documents": 2830,
+        "ham_coverage": 0.016813450760608487,
+        "spam_coverage": 0.3214447978191731
+      },
+      {
+        "term": "联系",
+        "ham_documents": 1177,
+        "spam_documents": 1903,
+        "ham_coverage": 0.07852949025887376,
+        "spam_coverage": 0.21615174920490687
+      },
+      {
+        "term": "提供",
+        "ham_documents": 477,
+        "spam_documents": 2447,
+        "ham_coverage": 0.03182546036829464,
+        "spam_coverage": 0.2779418446160836
+      },
+      {
+        "term": "信息",
+        "ham_documents": 511,
+        "spam_documents": 2285,
+        "ham_coverage": 0.034093941820122764,
+        "spam_coverage": 0.2595411176737846
+      },
+      {
+        "term": "网站",
+        "ham_documents": 213,
+        "spam_documents": 2498,
+        "ham_coverage": 0.01421136909527622,
+        "spam_coverage": 0.28373466606088144
+      },
+      {
+        "term": "咨询",
+        "ham_documents": 214,
+        "spam_documents": 2138,
+        "ham_coverage": 0.014278089137977049,
+        "spam_coverage": 0.24284416174466153
+      },
+      {
+        "term": "管理",
+        "ham_documents": 339,
+        "spam_documents": 1854,
+        "ham_coverage": 0.022618094475580466,
+        "spam_coverage": 0.2105860972285325
+      },
+      {
+        "term": "系统",
+        "ham_documents": 347,
+        "spam_documents": 1798,
+        "ham_coverage": 0.02315185481718708,
+        "spam_coverage": 0.20422535211267606
+      },
+      {
+        "term": "技术",
+        "ham_documents": 555,
+        "spam_documents": 1522,
+        "ham_coverage": 0.037029623698959166,
+        "spam_coverage": 0.1728759654702408
+      },
+      {
+        "term": "业务",
+        "ham_documents": 175,
+        "spam_documents": 1885,
+        "ham_coverage": 0.011676007472644783,
+        "spam_coverage": 0.21410722398909587
+      },
+      {
+        "term": "免费",
+        "ham_documents": 153,
+        "spam_documents": 1879,
+        "ham_coverage": 0.010208166533226582,
+        "spam_coverage": 0.21342571558382553
+      },
+      {
+        "term": "学习",
+        "ham_documents": 917,
+        "spam_documents": 1032,
+        "ham_coverage": 0.06118227915665866,
+        "spam_coverage": 0.11721944570649705
+      },
+      {
+        "term": "客户",
+        "ham_documents": 125,
+        "spam_documents": 1765,
+        "ham_coverage": 0.008340005337603417,
+        "spam_coverage": 0.20047705588368922
+      },
+      {
+        "term": "合作",
+        "ham_documents": 301,
+        "spam_documents": 1569,
+        "ham_coverage": 0.020082732852949026,
+        "spam_coverage": 0.17821444797819172
+      },
+      {
+        "term": "电脑",
+        "ham_documents": 455,
+        "spam_documents": 1412,
+        "ham_coverage": 0.030357619428876433,
+        "spam_coverage": 0.16038164470695138
+      },
+      {
+        "term": "邮件",
+        "ham_documents": 80,
+        "spam_documents": 1761,
+        "ham_coverage": 0.0053376034160661865,
+        "spam_coverage": 0.20002271694684234
+      },
+      {
+        "term": "网络",
+        "ham_documents": 427,
+        "spam_documents": 1357,
+        "ham_coverage": 0.02848945823325327,
+        "spam_coverage": 0.1541344843253067
+      },
+      {
+        "term": "市场",
+        "ham_documents": 273,
+        "spam_documents": 1435,
+        "ham_coverage": 0.01821457165732586,
+        "spam_coverage": 0.162994093593821
+      },
+      {
+        "term": "学校",
+        "ham_documents": 1454,
+        "spam_documents": 230,
+        "ham_coverage": 0.09701094208700294,
+        "spam_coverage": 0.026124488868696047
+      },
+      {
+        "term": "欢迎",
+        "ham_documents": 385,
+        "spam_documents": 1282,
+        "ham_coverage": 0.02568721643981852,
+        "spam_coverage": 0.14561562925942753
+      },
+      {
+        "term": "研究",
+        "ham_documents": 668,
+        "spam_documents": 968,
+        "ham_coverage": 0.044568988524152656,
+        "spam_coverage": 0.10995002271694684
+      },
+      {
+        "term": "优惠",
+        "ham_documents": 57,
+        "spam_documents": 1504,
+        "ham_coverage": 0.0038030424339471577,
+        "spam_coverage": 0.1708314402544298
+      },
+      {
+        "term": "培训",
+        "ham_documents": 155,
+        "spam_documents": 1367,
+        "ham_coverage": 0.010341606618628235,
+        "spam_coverage": 0.1552703316674239
+      },
+      {
+        "term": "广告",
+        "ham_documents": 111,
+        "spam_documents": 1380,
+        "ham_coverage": 0.007405924739791833,
+        "spam_coverage": 0.15674693321217628
+      },
+      {
+        "term": "地址",
+        "ham_documents": 124,
+        "spam_documents": 1312,
+        "ham_coverage": 0.008273285294902588,
+        "spam_coverage": 0.1490231712857792
+      },
+      {
+        "term": "活动",
+        "ham_documents": 468,
+        "spam_documents": 899,
+        "ham_coverage": 0.03122497998398719,
+        "spam_coverage": 0.10211267605633803
+      },
+      {
+        "term": "销售",
+        "ham_documents": 147,
+        "spam_documents": 1220,
+        "ham_coverage": 0.009807846277021618,
+        "spam_coverage": 0.13857337573830078
+      },
+      {
+        "term": "资料",
+        "ham_documents": 281,
+        "spam_documents": 1046,
+        "ham_coverage": 0.01874833199893248,
+        "spam_coverage": 0.11880963198546116
+      },
+      {
+        "term": "注册",
+        "ham_documents": 169,
+        "spam_documents": 1117,
+        "ham_coverage": 0.011275687216439819,
+        "spam_coverage": 0.1268741481144934
+      },
+      {
+        "term": "课程",
+        "ham_documents": 192,
+        "spam_documents": 1092,
+        "ham_coverage": 0.012810248198558846,
+        "spam_coverage": 0.12403452975920036
+      },
+      {
+        "term": "老师",
+        "ham_documents": 860,
+        "spam_documents": 405,
+        "ham_coverage": 0.0573792367227115,
+        "spam_coverage": 0.04600181735574739
+      },
+      {
+        "term": "发票",
+        "ham_documents": 11,
+        "spam_documents": 1227,
+        "ham_coverage": 0.0007339204697091006,
+        "spam_coverage": 0.13936846887778281
+      },
+      {
+        "term": "学生",
+        "ham_documents": 1021,
+        "spam_documents": 114,
+        "ham_coverage": 0.0681211635975447,
+        "spam_coverage": 0.012948659700136301
+      },
+      {
+        "term": "价格",
+        "ham_documents": 141,
+        "spam_documents": 951,
+        "ham_coverage": 0.009407526020816653,
+        "spam_coverage": 0.10801908223534756
+      },
+      {
+        "term": "投资",
+        "ham_documents": 162,
+        "spam_documents": 874,
+        "ham_coverage": 0.010808646917534028,
+        "spam_coverage": 0.09927305770104498
+      },
+      {
+        "term": "下载",
+        "ham_documents": 80,
+        "spam_documents": 814,
+        "ham_coverage": 0.0053376034160661865,
+        "spam_coverage": 0.09245797364834166
+      },
+      {
+        "term": "会员",
+        "ham_documents": 33,
+        "spam_documents": 838,
+        "ham_coverage": 0.002201761409127302,
+        "spam_coverage": 0.09518400726942298
+      },
+      {
+        "term": "报告",
+        "ham_documents": 364,
+        "spam_documents": 402,
+        "ham_coverage": 0.024286095543101148,
+        "spam_coverage": 0.04566106315311222
+      },
+      {
+        "term": "申请",
+        "ham_documents": 273,
+        "spam_documents": 447,
+        "ham_coverage": 0.01821457165732586,
+        "spam_coverage": 0.05077237619263971
+      },
+      {
+        "term": "通知",
+        "ham_documents": 333,
+        "spam_documents": 358,
+        "ham_coverage": 0.0222177742193755,
+        "spam_coverage": 0.04066333484779645
+      },
+      {
+        "term": "会议",
+        "ham_documents": 133,
+        "spam_documents": 401,
+        "ham_coverage": 0.008873765679210034,
+        "spam_coverage": 0.0455474784189005
+      },
+      {
+        "term": "文件",
+        "ham_documents": 70,
+        "spam_documents": 379,
+        "ham_coverage": 0.004670402989057913,
+        "spam_coverage": 0.04304861426624262
+      },
+      {
+        "term": "办理",
+        "ham_documents": 81,
+        "spam_documents": 203,
+        "ham_coverage": 0.005404323458767014,
+        "spam_coverage": 0.023057701044979555
+      },
+      {
+        "term": "订单",
+        "ham_documents": 11,
+        "spam_documents": 244,
+        "ham_coverage": 0.0007339204697091006,
+        "spam_coverage": 0.027714675147660156
+      }
+    ]
+  },
+  "private_output_sha256": {
+    "artifacts/processed/features/train.npz": "21a84acd14670fe943a036e248d34a833e94ea6355a3141d95a40beaff9f03f1",
+    "artifacts/processed/features/validation.npz": "7f6f96eca8531ef867417337fe9864b8b5edb4683b9f1beef65c71a6fb519ba5",
+    "artifacts/processed/features/test.npz": "490be8902a7b7c7ff6df029c6dde9442cb32245fad62028bcec22c6c55d554a8",
+    "artifacts/processed/features/row_order.json": "16d3b4044433c40c95002abd8643957ba8eb8d44490a92e31bdd66a53de12ada",
+    "artifacts/processed/features/training_word_coverage.csv": "38fc980b82177015332aa571b1a3e7e2a44ba9391d2c0fcd8c1adbfe810f2204",
+    "artifacts/models/tfidf_pipeline.joblib": "d58d52dcaecb9c7b3f5bbe2bf0e41a15164ade58c7df5e3cf80bbc9cee0c2cd7"
+  },
+  "privacy": "All texts, full vocabulary, word frequencies, fitted pipeline and sparse matrices remain local; public words use the predeclared generic whitelist.",
+  "passed": true
+}

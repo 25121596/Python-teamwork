@@ -1,0 +1,51 @@
+{
+  "checks": {
+    "verified_upstream_inputs_match_generation": true,
+    "feature_source_and_dictionary_match": true,
+    "private_output_checksums_match": true,
+    "training_only_fit_declared": true,
+    "fitted_state_matches_generation": true,
+    "vocabulary_selected_only_from_training_frequencies": true,
+    "idf_matches_independently_counted_training_documents": true,
+    "saved_pipeline_matches_fixed_configuration": true,
+    "full_private_word_table_matches_training_counts": true,
+    "public_terms_exactly_match_whitelist_and_training_df": true,
+    "token_aggregates_match_training_recount": true,
+    "all_matrix_and_alignment_checks_pass": true,
+    "all_transform_calls_preserve_vocabulary_and_idf": true,
+    "runtime_versions_match_generation": true
+  },
+  "matrix_checks": {
+    "train": {
+      "id_and_label_order_matches_frozen_csv": true,
+      "shape_matches_split_and_vocabulary": true,
+      "summary_matches_matrix": true,
+      "finite_nonnegative_csr_float64": true,
+      "nonzero_rows_have_unit_l2_norm": true,
+      "zero_rows_have_zero_norm": true,
+      "saved_features_equal_fresh_transform": true
+    },
+    "validation": {
+      "id_and_label_order_matches_frozen_csv": true,
+      "shape_matches_split_and_vocabulary": true,
+      "summary_matches_matrix": true,
+      "finite_nonnegative_csr_float64": true,
+      "nonzero_rows_have_unit_l2_norm": true,
+      "zero_rows_have_zero_norm": true,
+      "saved_features_equal_fresh_transform": true
+    },
+    "test": {
+      "id_and_label_order_matches_frozen_csv": true,
+      "shape_matches_split_and_vocabulary": true,
+      "summary_matches_matrix": true,
+      "finite_nonnegative_csr_float64": true,
+      "nonzero_rows_have_unit_l2_norm": true,
+      "zero_rows_have_zero_norm": true,
+      "saved_features_equal_fresh_transform": true
+    }
+  },
+  "feature_source_sha256": "bfd172d7c43228c59c78bec00b333213b26e7c9b7141eeb72d48186285b56a29",
+  "validator_source_sha256": "6046c33cea9e28a94a4a1d957474a6d44666fa5d363ac264efdccf61b64e183c",
+  "scope": "Fresh process loads local joblib, recounts training-only document frequencies and reproduces saved transforms; no classifier fitting or prediction.",
+  "passed": true
+}

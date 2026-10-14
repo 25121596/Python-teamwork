@@ -1,0 +1,218 @@
+{
+  "scope": "Aggregate-only EDA from validated dataset loader; no message text serialized or printed.",
+  "interpretation": "Descriptive corpus and fixed-split statistics only; these results must not be used to select vocabulary, token filters, thresholds or model features.",
+  "counts": {
+    "raw_indexed": {
+      "ham": 21766,
+      "spam": 42854
+    },
+    "cleaned_usable": {
+      "ham": 21766,
+      "spam": 42854
+    },
+    "cleaned_parse_status": {
+      "ok": 29891,
+      "recovered": 33307,
+      "subject_only": 1422
+    },
+    "deduplicated_representatives": {
+      "ham": 21411,
+      "spam": 12577
+    },
+    "split_counts": {
+      "train": {
+        "total": 23792,
+        "ham": 14988,
+        "spam": 8804
+      },
+      "validation": {
+        "total": 5099,
+        "ham": 3212,
+        "spam": 1887
+      },
+      "test": {
+        "total": 5097,
+        "ham": 3211,
+        "spam": 1886
+      }
+    },
+    "overall_retention_rate": 0.5259671928195605,
+    "retention_rate_by_label": {
+      "ham": 0.9836901589635211,
+      "spam": 0.2934848555560741
+    }
+  },
+  "text_clean_character_lengths": {
+    "unit": "Unicode code points in text_clean; subject and body if present in text_clean",
+    "quantiles": {
+      "train": {
+        "ham": {
+          "n": 14988,
+          "mean": 680.49,
+          "p50": 302,
+          "p90": 996,
+          "p95": 1966,
+          "p99": 8903,
+          "max": 30395
+        },
+        "spam": {
+          "n": 8804,
+          "mean": 1110.6,
+          "p50": 499,
+          "p90": 3058,
+          "p95": 3790,
+          "p99": 7023,
+          "max": 30616
+        }
+      },
+      "validation": {
+        "ham": {
+          "n": 3212,
+          "mean": 620.02,
+          "p50": 299,
+          "p90": 991,
+          "p95": 1826,
+          "p99": 7925,
+          "max": 23109
+        },
+        "spam": {
+          "n": 1887,
+          "mean": 1207.41,
+          "p50": 571,
+          "p90": 3066,
+          "p95": 3972,
+          "p99": 7347,
+          "max": 21599
+        }
+      },
+      "test": {
+        "ham": {
+          "n": 3211,
+          "mean": 682.5,
+          "p50": 301,
+          "p90": 1001,
+          "p95": 2150,
+          "p99": 9118,
+          "max": 25832
+        },
+        "spam": {
+          "n": 1886,
+          "mean": 1184.67,
+          "p50": 564,
+          "p90": 2985,
+          "p95": 3566,
+          "p99": 6700,
+          "max": 22673
+        }
+      },
+      "all": {
+        "ham": {
+          "n": 21411,
+          "mean": 671.72,
+          "p50": 301,
+          "p90": 996,
+          "p95": 1966,
+          "p99": 8887,
+          "max": 30395
+        },
+        "spam": {
+          "n": 12577,
+          "mean": 1136.23,
+          "p50": 520,
+          "p90": 3058,
+          "p95": 3790,
+          "p99": 7023,
+          "max": 30616
+        }
+      }
+    }
+  },
+  "quality_features": {
+    "train": {
+      "ham": {
+        "subject_only": 134,
+        "has_html": 627,
+        "decode_fallback": 10111,
+        "encoding_warning": 238,
+        "subject_only_rate": 0.008940485721910862,
+        "has_html_rate": 0.04183346677341873,
+        "decode_fallback_rate": 0.6746063517480652,
+        "encoding_warning_rate": 0.015879370162796905
+      },
+      "spam": {
+        "subject_only": 271,
+        "has_html": 2983,
+        "decode_fallback": 4056,
+        "encoding_warning": 1933,
+        "subject_only_rate": 0.03078146297137665,
+        "has_html_rate": 0.33882326215356656,
+        "decode_fallback_rate": 0.4606996819627442,
+        "encoding_warning_rate": 0.21955929123125853
+      }
+    },
+    "validation": {
+      "ham": {
+        "subject_only": 29,
+        "has_html": 124,
+        "decode_fallback": 2170,
+        "encoding_warning": 56,
+        "subject_only_rate": 0.009028642590286426,
+        "has_html_rate": 0.038605230386052306,
+        "decode_fallback_rate": 0.6755915317559154,
+        "encoding_warning_rate": 0.017434620174346202
+      },
+      "spam": {
+        "subject_only": 45,
+        "has_html": 559,
+        "decode_fallback": 989,
+        "encoding_warning": 489,
+        "subject_only_rate": 0.02384737678855326,
+        "has_html_rate": 0.2962374138844727,
+        "decode_fallback_rate": 0.5241123476417594,
+        "encoding_warning_rate": 0.2591414944356121
+      }
+    },
+    "test": {
+      "ham": {
+        "subject_only": 30,
+        "has_html": 148,
+        "decode_fallback": 2135,
+        "encoding_warning": 39,
+        "subject_only_rate": 0.009342883836810962,
+        "has_html_rate": 0.046091560261600745,
+        "decode_fallback_rate": 0.6649018997197135,
+        "encoding_warning_rate": 0.012145748987854251
+      },
+      "spam": {
+        "subject_only": 58,
+        "has_html": 505,
+        "decode_fallback": 935,
+        "encoding_warning": 410,
+        "subject_only_rate": 0.030752916224814422,
+        "has_html_rate": 0.26776246023329797,
+        "decode_fallback_rate": 0.4957582184517497,
+        "encoding_warning_rate": 0.21739130434782608
+      }
+    }
+  },
+  "quality_feature_rate_denominator": "Representatives within each split and class.",
+  "figures": {
+    "category_counts": "artifacts/figures/stage05_category_counts.png",
+    "length_distribution": "artifacts/figures/stage05_length_distribution.png",
+    "quality_features": "artifacts/figures/stage05_quality_features.png",
+    "fixed_split_class_counts": "artifacts/figures/stage05_fixed_split_class_counts.png"
+  },
+  "passed": true,
+  "input_provenance": {
+    "cleaning_cache_sha256": "16ad78a28dfda98b62608ab7dd50a351ebe5890c7452ee3c185f8a32ae668a01",
+    "split_policy_source_sha256": "b76e317856afeb0db8c32a923b8266c5fa09638d2392dcfeb7224b1ff3d9e52d",
+    "split_summary_sha256": "9729ee16c180bb77d166c6943fcff3754230c70bd8ccdd473a0e578d75977048",
+    "split_validation_sha256": "eff2bffa6bacaf3e75507fd3f5d496d4925bf0adcdd9729a86eb1a9ad5e0f0eb",
+    "split_csv_sha256": {
+      "train": "3d98f3aaa8f889e0c189f78ec8cf7b79ccee82b22b830df75e716583be86da77",
+      "validation": "75b163c8db3c5d55334199e1b1c9cb87abee0e4a6722bec3617fda6c9d6dc003",
+      "test": "3a4410b736ff115ac812bc97b32d629796cdd055059ae3edc7617735dbc82683"
+    }
+  },
+  "eda_source_sha256": "c85609e554978eb1497d4c0c7c2755f5c08440a0e852ac59f37433312cf60191"
+}

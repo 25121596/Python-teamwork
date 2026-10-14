@@ -7,3 +7,11 @@
 /artifacts/audit/stage04_validation.json text eol=lf
 /artifacts/audit/stage04_independent_audit.json text eol=lf
 /artifacts/audit/stage04_reproducibility.json text eol=lf
+
+# Stage-five public summaries and static token rules also retain LF bytes.
+/artifacts/audit/eda_summary.json text eol=lf
+/artifacts/audit/feature_summary.json text eol=lf
+/artifacts/audit/feature_validation.json text eol=lf
+/artifacts/audit/stage05_validation.json text eol=lf
+/config/stopwords_zh.txt text eol=lf
+/config/public_terms_zh.txt text eol=lf

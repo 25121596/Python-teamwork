@@ -10,7 +10,7 @@
 
 **当前范围**
 
-已完成环境、全量索引审计、64,620 封邮件清洗与内容去重划分。保留 33,988 封不同的规范化主题＋正文，固定训练/验证/测试集为 23,792 / 5,099 / 5,097。正文缓存与去重账本留在本地，仓库保存代码、划分元数据及聚合证据。下一步为探索分析与文本特征。
+已完成前五步：环境、索引、全量清洗、去重冻结划分，以及 EDA/分词/TF-IDF。保留 33,988 封代表，训练/验证/测试为 23,792 / 5,099 / 5,097，三套特征共用训练侧学到的 50,000 维词表。五张图与聚合证据公开，正文、去重账本、完整词频、特征管线和矩阵留在本地。下一步为基线与两种分类模型比较。
 
 建议主线：邮件解析清洗 → 内容去重与固定划分 → 探索分析 → jieba 与 TF-IDF → 朴素贝叶斯及逻辑回归 → 评估解释。
 
@@ -74,7 +74,7 @@ $env:TREC06C_ROOT = 'D:/课程数据/trec06c'
 
 安全摘要写入 `artifacts/audit/environment_check.json`，不含个人绝对路径、收发件地址或邮件正文。可通过 `--config` 和 `--output` 指定其他配置或输出；相对参数均以项目根目录为基准。
 
-目前可执行入口为环境检查、索引审计和邮件解析清洗。后续运行顺序：去重划分 → EDA/特征 → 模型比较 → 最终评估；这些后续脚本尚未实现。
+目前可执行入口包括环境检查、索引审计、邮件解析清洗、去重划分及 EDA/特征构建与核验。后续为模型比较、清洗对照和最终评估；分类器与最终评估脚本尚未实现。
 
 **第二阶段索引审计**
 
@@ -157,6 +157,30 @@ $env:TREC06C_ROOT = 'D:/课程数据/trec06c'
 后续脚本按固定 CSV 的 `mail_id` 与本地清洗缓存关联文本，不能把 CSV 的 ID、标签或集合字段作为模型特征。精确去重无法排除所有近重复广告模板；去重后的类别比例也会改变，评估对象是本语料的不同规范化文本。
 
 冻结文件使用 `.gitattributes` 固定 LF 换行，避免 Windows 检出时改变字节指纹。实际结果见 [第四阶段记录](docs/stages/04_去重与冻结数据划分.md)。
+
+**第五阶段 EDA 与文本特征**
+
+```powershell
+.\.venv\Scripts\python.exe scripts\analyze_corpus.py
+.\.venv\Scripts\python.exe scripts\build_features.py
+.\.venv\Scripts\python.exe scripts\check_features.py
+```
+
+所有入口通过验证过的 dataset loader 按冻结 CSV 的 ID 对齐文本和标签。EDA 为描述性聚合，包含全语料与固定集合的类别、长度和质量标记；词覆盖统计只用训练代表。公开词图仅展示预设通用词表中的高频词，完整词频表留在本地。
+
+jieba 采用精确模式、HMM=False，固定停用词与词典指纹；保留非停用词中文单字、数字和联系字段占位符。TF-IDF 只在 train 拟合，min_df=2、max_features=50000、sublinear_tf=True、L2、float64；验证/测试只转换。独立脚本重算训练 DF/IDF，并在新进程重载管线核验保存矩阵。
+
+| 产物 | 范围 |
+|---|---|
+| `artifacts/figures/stage05_*.png` | 五张可直接使用的统计图与训练通用词覆盖图 |
+| `artifacts/audit/eda_summary.json`、`feature_summary.json`、`feature_validation.json`、`stage05_validation.json` | 聚合统计、配置、来源与验收记录 |
+| `artifacts/processed/features/` | 本地 CSR 矩阵、ID/标签行序与完整词频，被 Git 忽略 |
+| `artifacts/models/tfidf_pipeline.joblib` | 本地已拟合特征管线，被 Git 忽略 |
+| `config/stopwords_zh.txt`、`public_terms_zh.txt` | 公开的预设静态规则，不从 heldout 推导 |
+
+`feature_summary.passed` 表示构建完成；独立验收以 `feature_validation` 为准。异常时旧产物可能仍存在，使用缓存前必须核对来源与指纹。手动重载 joblib 需要本仓库 `src` 模块路径与固定依赖。
+
+图表解释、实际维度与检查结果见 [第五阶段记录](docs/stages/05_探索分析与文本特征.md)，人工示例与公式见 [分词与特征说明](docs/分词与特征说明.md)。当前没有分类器或最终测试成绩。
 
 **Notebook 使用**
 

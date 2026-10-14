@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-14",
+  "checks": {
+    "feature_independent_validation_passed": true,
+    "regression_and_synthetic_tests_passed": true,
+    "eda_source_fingerprint_matches": true,
+    "eda_and_features_use_identical_frozen_inputs": true,
+    "feature_source_and_validator_fingerprints_match": true,
+    "dictionary_and_static_rule_fingerprints_match": true,
+    "dtype_summary_agrees_with_validated_matrices": true,
+    "all_private_outputs_still_match_checksums": true,
+    "all_private_outputs_configuration_environment_ignored": true,
+    "only_placeholders_tracked_in_private_directories": true,
+    "public_json_has_no_per_mail_text_or_vocabulary_fields": true,
+    "all_public_corpus_words_are_predeclared_generic_terms": true,
+    "five_report_figures_exist_and_pass_image_integrity": true,
+    "git_checkout_filters_preserve_public_artifact_bytes": true,
+    "public_summary_line_endings_are_lf": true,
+    "all_document_links_resolve": true
+  },
+  "unittest": {
+    "tests_run": 84,
+    "executed_passed": 83,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "skip_details": [
+      {
+        "test": "test_symlink_outside_data_is_rejected (test_index_audit.IndexAuditTests.test_symlink_outside_data_is_rejected)",
+        "reason": "Symlink creation is unavailable on this host."
+      }
+    ],
+    "passed": true
+  },
+  "independent_feature_global_checks": 14,
+  "independent_matrix_checks_per_split": {
+    "train": 7,
+    "validation": 7,
+    "test": 7
+  },
+  "training_token_types_with_df_at_least_2": 80524,
+  "quality_review": {
+    "eda_length_and_quality_aggregates_independently_recounted_by_luna": true,
+    "figures_visually_inspected_by_root": 5,
+    "figure_pixel_sizes": {
+      "stage05_category_counts.png": [
+        2145,
+        1072
+      ],
+      "stage05_fixed_split_class_counts.png": [
+        1695,
+        1025
+      ],
+      "stage05_length_distribution.png": [
+        2145,
+        1098
+      ],
+      "stage05_quality_features.png": [
+        2414,
+        1097
+      ],
+      "stage05_training_word_coverage.png": [
+        2468,
+        1270
+      ]
+    },
+    "real_mail_excerpts_published": false,
+    "public_examples_are_synthetic": true
+  },
+  "artifacts_sha256": {
+    "audit/eda_summary.json": "494bd17139ad4b7491e58b427aa0b6d04aed41873bdf3870145649248726f621",
+    "audit/feature_summary.json": "6c48a8b0bf38fc055124e1632fa5ddad6389d06359d79a8e31c88b390b41fe06",
+    "audit/feature_validation.json": "f481858aacd6d7a1d531d2f1800d5db163fc6029ebb2f463dfccb4a21636d7fe",
+    "figures/stage05_category_counts.png": "5cf8cce68be2a3db29d08a32449bf66f701a9be9e580ffa27b025f96f1f1c1a7",
+    "figures/stage05_fixed_split_class_counts.png": "c2b0e3b2193137fa6b06e377bbb11b93828efa38be74fbcd8752958d1beb5dd0",
+    "figures/stage05_length_distribution.png": "02847d403aaaf3207765261425836efb98b0db41b1a23702e3e4727b09ba272b",
+    "figures/stage05_quality_features.png": "6e1ec7ce13c3fcf5caa97710195bb194f7e6cb63e5913332099a97f8d0fefcad",
+    "figures/stage05_training_word_coverage.png": "ded83ed2ea1dc28c04349de9b1b9589b558cde70b91896550e75239bab77b612"
+  },
+  "not_run": [
+    "Classifier training",
+    "Model parameter comparison",
+    "Final test classification evaluation"
+  ],
+  "passed": true
+}
