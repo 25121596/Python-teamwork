@@ -197,6 +197,20 @@ jieba 采用精确模式、HMM=False，固定停用词与词典指纹；保留�
 
 复现顺序为第 2—5 步、模型训练、模型独立检查。失败时先解决来源或指纹问题再重跑，旧产物不可直接视为当前有效结果。模型采用固定依赖与单线程限制；耗时仅是本机运行记录。详见 [第六阶段记录](docs/stages/06_基线与两种模型比较.md)。第七步先完成清洗对照，第八步再报告最终测试分类成绩。
 
+**第七、八阶段续作**
+
+程序和合成检查已实现，真实对照与最终测试尚未执行。新环境先恢复第 2—6 步的私有缓存和固定依赖，再逐条执行，前一步失败时停止：
+
+```powershell
+.\.venv\Scripts\python.exe scripts\check_readiness.py
+.\.venv\Scripts\python.exe scripts\compare_cleaning.py
+.\.venv\Scripts\python.exe scripts\check_ablation.py
+.\.venv\Scripts\python.exe scripts\evaluate_final.py
+.\.venv\Scripts\python.exe scripts\check_final_results.py
+```
+
+清洗对照只使用训练/验证，必须重现第六步去标签臂后才能生成 `final_lock.json`。最终测试先校验锁及独立验收，只预测，不重选模型。错误分析的真实文本保存在被忽略的 `artifacts/processed/stage08/error_review.json`，需人工逐例复核；自动标记不是错因结论。详情见 [第七步](docs/stages/07_HTML清洗对照与方案锁定.md)、[第八步](docs/stages/08_最终测试与错误分析流程.md)。
+
 **Notebook 使用**
 
 已安装 `ipykernel`。在现有 Notebook 或编辑器中选择本仓库的 `.venv` 解释器。如需在现有 Jupyter 中注册专用内核，可手动执行：

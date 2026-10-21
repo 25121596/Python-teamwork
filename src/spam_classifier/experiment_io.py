@@ -16,6 +16,8 @@ EXPERIMENT_SOURCES = (
     "src/spam_classifier/text_features.py",
     "config/stopwords_zh.txt", "config/public_terms_zh.txt",
     "scripts/compare_cleaning.py", "scripts/check_ablation.py",
+    "src/spam_classifier/final_evaluation.py", "scripts/evaluate_final.py",
+    "scripts/check_final_results.py",
 )
 SCOPE = {"fit": "train_only", "selection": "validation_only", "test_metrics_computed": False}
 REPRESENTATIONS = ("text_clean", "text_unstripped_html")
