@@ -1,0 +1,51 @@
+{
+  "scope": "File existence and runtime metadata only; no corpus experiment executed.",
+  "missing_private_inputs": [
+    "artifacts/models/stage06/lr_C_0.5.joblib",
+    "artifacts/models/stage06/lr_C_1.joblib",
+    "artifacts/models/stage06/lr_C_2.joblib",
+    "artifacts/models/stage06/majority.joblib",
+    "artifacts/models/stage06/nb_alpha_0.1.joblib",
+    "artifacts/models/stage06/nb_alpha_0.5.joblib",
+    "artifacts/models/stage06/nb_alpha_1.joblib",
+    "artifacts/models/stage06/selected_pipeline.joblib",
+    "artifacts/models/tfidf_pipeline.joblib",
+    "artifacts/processed/cleaned_mail.jsonl",
+    "artifacts/processed/dedup_ledger.csv",
+    "artifacts/processed/features/row_order.json",
+    "artifacts/processed/features/train.npz",
+    "artifacts/processed/features/validation.npz",
+    "artifacts/processed/mail_manifest.csv",
+    "artifacts/processed/stage06/validation_predictions.npz"
+  ],
+  "runtime_differences_from_stage06": {
+    "numpy": {
+      "recorded": "2.5.4",
+      "current": "2.3.5"
+    },
+    "scipy": {
+      "recorded": "1.18.1",
+      "current": "1.17.0"
+    },
+    "scikit_learn": {
+      "recorded": "1.9.1",
+      "current": "1.8.0"
+    },
+    "joblib": {
+      "recorded": "1.6.0",
+      "current": "1.5.3"
+    },
+    "threadpoolctl": {
+      "recorded": "3.7.0",
+      "current": "3.6.0"
+    }
+  },
+  "can_reuse_stage06_caches": false,
+  "required_for_course_submission": [
+    "Teacher's original Word template",
+    "Confirmed group number, leader, member names and student IDs",
+    "Actual member contributions",
+    "Recorded five-minute presentation and course upload confirmation"
+  ],
+  "next_action": "Restore the original corpus outside this repository and rebuild stages 2–6 in a compatible environment; retain frozen split CSVs."
+}
