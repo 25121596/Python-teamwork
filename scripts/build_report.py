@@ -23,8 +23,8 @@ FONT = "Noto Sans CJK SC"
 
 def build():
     OUT.mkdir(exist_ok=True)
-    eda = json.loads((ROOT / "artifacts/audit/eda_summary.json").read_text())
-    with (ROOT / "artifacts/metrics/stage06_validation.csv").open() as stream:
+    eda = json.loads((ROOT / "artifacts/audit/eda_summary.json").read_text(encoding="utf-8"))
+    with (ROOT / "artifacts/metrics/stage06_validation.csv").open(encoding="utf-8", newline="") as stream:
         experiments = list(csv.DictReader(stream))
     by_id = {row["candidate_id"]: row for row in experiments}
     doc = Document()
