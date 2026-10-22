@@ -44,7 +44,7 @@
       "saved_features_equal_fresh_transform": true
     }
   },
-  "feature_source_sha256": "bfd172d7c43228c59c78bec00b333213b26e7c9b7141eeb72d48186285b56a29",
+  "feature_source_sha256": "e0d811fbb1af8b03699812a891bc6aaa951e206ae46d275d2806f58960a2d696",
   "validator_source_sha256": "6046c33cea9e28a94a4a1d957474a6d44666fa5d363ac264efdccf61b64e183c",
   "scope": "Fresh process loads local joblib, recounts training-only document frequencies and reproduces saved transforms; no classifier fitting or prediction.",
   "passed": true

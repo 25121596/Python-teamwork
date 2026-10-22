@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-22",
+  "baseline": "cd8e106",
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit_learn": "1.9.1",
+    "joblib": "1.6.0",
+    "threadpoolctl": "3.7.0"
+  },
+  "passed": true,
+  "note": "Only Noto fallback was added to two plotting functions. Feature rules, model grid, split IDs and winner-selection policy were not changed.",
+  "historical_comparison": {
+    "artifacts/audit/index_summary.json": true,
+    "artifacts/audit/cleaning_summary.json": true,
+    "artifacts/audit/cleaning_validation.json": true,
+    "artifacts/audit/development_cleaning_summary.json": true,
+    "artifacts/audit/split_summary.json": true,
+    "artifacts/audit/split_validation.json": true,
+    "artifacts/splits/train.csv": true,
+    "artifacts/splits/validation.csv": true,
+    "artifacts/splits/test.csv": true,
+    "training_vocabulary_and_idf_match": false,
+    "training_word_coverage_match": true,
+    "all_seven_validation_metrics_match": false,
+    "selection_match": true,
+    "model_independent_audit_passed": true,
+    "no_real_final_test_access_yet": true
+  },
+  "exact_historical_reproduction": false,
+  "verified_invariants": {
+    "artifacts/audit/index_summary.json": true,
+    "artifacts/audit/cleaning_summary.json": true,
+    "artifacts/audit/cleaning_validation.json": true,
+    "artifacts/audit/development_cleaning_summary.json": true,
+    "artifacts/audit/split_summary.json": true,
+    "artifacts/audit/split_validation.json": true,
+    "artifacts/splits/train.csv": true,
+    "artifacts/splits/validation.csv": true,
+    "artifacts/splits/test.csv": true,
+    "training_word_coverage_match": true,
+    "selection_match": true,
+    "model_independent_audit_passed": true,
+    "no_real_final_test_access_yet": true
+  },
+  "observed_differences": {
+    "vocabulary_and_idf_fingerprints_changed": true,
+    "validation_confusion_changes": {
+      "nb_alpha_1": {
+        "old_fp": 135,
+        "new_fp": 136
+      },
+      "nb_alpha_0.5": {
+        "old_fp": 135,
+        "new_fp": 134
+      }
+    },
+    "winning_nb_and_lr_validation_metrics_unchanged": true
+  },
+  "interpretation": "The corpus, parser output, split bytes, tokenizer fingerprint and complete training word-coverage file reproduce exactly. Vocabulary truncation uses frequency argsort without a lexical tie rule in the installed scikit-learn implementation; platform-sensitive tied top-k selection is a plausible explanation, not proven without the original Windows fitted vocabulary. Both current features and models passed independent reconstruction audits. Preserve historical Git evidence; continue from this explicitly versioned Linux baseline before final-test access.",
+  "ready_for_stage07": true
+}

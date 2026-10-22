@@ -11,7 +11,7 @@
       "test": "3a4410b736ff115ac812bc97b32d629796cdd055059ae3edc7617735dbc82683"
     }
   },
-  "feature_source_sha256": "bfd172d7c43228c59c78bec00b333213b26e7c9b7141eeb72d48186285b56a29",
+  "feature_source_sha256": "e0d811fbb1af8b03699812a891bc6aaa951e206ae46d275d2806f58960a2d696",
   "tokenizer": {
     "jieba_version": "0.42.1",
     "dictionary_sha256": "7197c3211ddd98962b036cdf40324d1ea2bfaa12bd028e68faa70111a88e12a8",
@@ -51,40 +51,40 @@
     "train": {
       "rows": 23792,
       "columns": 50000,
-      "nnz": 3664007,
-      "density": 0.003080032784129119,
+      "nnz": 3664021,
+      "density": 0.003080044552790854,
       "zero_rows": 0,
       "zero_row_fraction": 0.0,
-      "csr_bytes": 44063256,
+      "csr_bytes": 44063424,
       "format": "csr",
       "dtype": "float64"
     },
     "validation": {
       "rows": 5099,
       "columns": 50000,
-      "nnz": 807971,
-      "density": 0.0031691351245342224,
+      "nnz": 807995,
+      "density": 0.0031692292606393412,
       "zero_rows": 0,
       "zero_row_fraction": 0.0,
-      "csr_bytes": 9716052,
+      "csr_bytes": 9716340,
       "format": "csr",
       "dtype": "float64"
     },
     "test": {
       "rows": 5097,
       "columns": 50000,
-      "nnz": 815090,
-      "density": 0.0031983127329801844,
+      "nnz": 815125,
+      "density": 0.003198450068667844,
       "zero_rows": 0,
       "zero_row_fraction": 0.0,
-      "csr_bytes": 9801472,
+      "csr_bytes": 9801892,
       "format": "csr",
       "dtype": "float64"
     }
   },
   "fitted_state": {
-    "vocabulary_sha256": "e09d7391545478e6e623deef31c9222601ca9e86144438a4803ceb95eeb43b9c",
-    "idf_sha256": "489c0a3d19d870110625dec9d22bf4cc2b1694c5132e4a1f89c78ddbdf5792ee"
+    "vocabulary_sha256": "0dae28d35b0a2316aff51fd0e0c8481ebf2b3239f6bea972d457b6460b6f8955",
+    "idf_sha256": "71c2e7b4b4866c6cd5787ca7d8a25439270b960bf24017d50132b0e66ced8273"
   },
   "heldout_transform_preserved_fitted_state": true,
   "training_word_coverage": {
@@ -473,12 +473,12 @@
     ]
   },
   "private_output_sha256": {
-    "artifacts/processed/features/train.npz": "21a84acd14670fe943a036e248d34a833e94ea6355a3141d95a40beaff9f03f1",
-    "artifacts/processed/features/validation.npz": "7f6f96eca8531ef867417337fe9864b8b5edb4683b9f1beef65c71a6fb519ba5",
-    "artifacts/processed/features/test.npz": "490be8902a7b7c7ff6df029c6dde9442cb32245fad62028bcec22c6c55d554a8",
+    "artifacts/processed/features/train.npz": "5e4603befcf8b1d952538eb73e01865189050fb0e9b90e608b6cc99e1d693cc8",
+    "artifacts/processed/features/validation.npz": "cad1d6b1641d46bc86637bde972ca0b8a581a2e479f4dc02d8c20cd5ac3cdb80",
+    "artifacts/processed/features/test.npz": "a44466cee9a568dec97a8fabcc7a1e5d51bcdf71857abeceac7760c302ac779a",
     "artifacts/processed/features/row_order.json": "16d3b4044433c40c95002abd8643957ba8eb8d44490a92e31bdd66a53de12ada",
     "artifacts/processed/features/training_word_coverage.csv": "38fc980b82177015332aa571b1a3e7e2a44ba9391d2c0fcd8c1adbfe810f2204",
-    "artifacts/models/tfidf_pipeline.joblib": "d58d52dcaecb9c7b3f5bbe2bf0e41a15164ade58c7df5e3cf80bbc9cee0c2cd7"
+    "artifacts/models/tfidf_pipeline.joblib": "8bfb702091f03a03294931436f5a067adcbb47457ae667719d884d59b1c27bad"
   },
   "privacy": "All texts, full vocabulary, word frequencies, fitted pipeline and sparse matrices remain local; public words use the predeclared generic whitelist.",
   "passed": true

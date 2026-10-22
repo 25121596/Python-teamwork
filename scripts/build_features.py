@@ -86,7 +86,7 @@ def word_coverage(training_records: list[dict]) -> tuple[list[dict], dict]:
 
 
 def plot_public_words(coverage: dict, path: Path) -> None:
-    plt.rcParams.update({"font.sans-serif": ["Microsoft YaHei", "SimHei", "DejaVu Sans"], "axes.unicode_minus": False})
+    plt.rcParams.update({"font.sans-serif": ["Microsoft YaHei", "SimHei", "Noto Sans CJK SC", "DejaVu Sans"], "axes.unicode_minus": False})
     fig, axes = plt.subplots(1, 2, figsize=(13.6, 6.7), sharex=True, layout="constrained")
     colors = {"ham": "#326b99", "spam": "#d98748"}
     for ax, label, title in zip(axes, ("ham", "spam"), ("正常邮件（ham）", "垃圾邮件（spam）")):
