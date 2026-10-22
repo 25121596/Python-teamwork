@@ -1,6 +1,11 @@
 # Stage-two CSV writer uses CRLF; retain the recorded manifest checksum on Linux.
 /artifacts/splits/development_sample.csv text eol=crlf
 
+# Final locks bind public evidence bytes, including newly generated stages.
+/artifacts/audit/*.json text eol=lf
+/artifacts/metrics/*.json text eol=lf
+/artifacts/metrics/*.csv text eol=lf
+
 # Frozen stage-four metadata uses canonical LF bytes on every checkout.
 /artifacts/splits/train.csv text eol=lf
 /artifacts/splits/validation.csv text eol=lf

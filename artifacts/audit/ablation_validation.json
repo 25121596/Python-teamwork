@@ -1,0 +1,26 @@
+{
+  "scope": "Train-only refits, validation-only metrics; no test CSV or matrix opened",
+  "checks": {
+    "alignment": true,
+    "representation_matches_lock": true,
+    "text_clean_train_only_state": true,
+    "text_clean_predictions": true,
+    "text_clean_metrics": true,
+    "text_unstripped_html_train_only_state": true,
+    "text_unstripped_html_predictions": true,
+    "text_unstripped_html_metrics": true,
+    "majority_selected_representation": true,
+    "majority_train_only_replay": true,
+    "majority_metrics": true,
+    "nb_selected_representation": true,
+    "nb_train_only_replay": true,
+    "nb_metrics": true,
+    "lr_selected_representation": true,
+    "lr_train_only_replay": true,
+    "lr_metrics": true,
+    "independent_representation_ranking": true
+  },
+  "lock_sha256": "b8bddf2da3c4d0933c18d116419b56080498b94d136db177a06bfb5206d3b647",
+  "validator_source_sha256": "37d1f97a73d966ab794835a242c441f05a384bb0341be2442c698d500f2bfcef",
+  "passed": true
+}

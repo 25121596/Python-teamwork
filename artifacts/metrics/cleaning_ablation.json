@@ -1,0 +1,189 @@
+{
+  "scope": "train/validation only; both representations fit their own training vocabulary and IDF",
+  "train_rows": 23792,
+  "validation_rows": 5099,
+  "comparisons": [
+    {
+      "representation": "text_clean",
+      "C": 2.0,
+      "fit_seconds": 42.33212247100005,
+      "converged": true,
+      "n_iter": [
+        7
+      ],
+      "warning_categories": [],
+      "metrics": {
+        "n": 5099,
+        "ham_support": 3212,
+        "spam_support": 1887,
+        "confusion_matrix": {
+          "tn": 3201,
+          "fp": 11,
+          "fn": 47,
+          "tp": 1840
+        },
+        "accuracy": 0.9886252206314964,
+        "spam_precision": 0.9940572663425176,
+        "spam_recall": 0.9750927397986221,
+        "ham_f1": 0.9910216718266254,
+        "spam_f1": 0.9844836811128946,
+        "macro_f1": 0.98775267646976,
+        "ham_false_positive_rate": 0.003424657534246575
+      },
+      "fitted_state": {
+        "vocabulary_sha256": "0dae28d35b0a2316aff51fd0e0c8481ebf2b3239f6bea972d457b6460b6f8955",
+        "idf_sha256": "71c2e7b4b4866c6cd5787ca7d8a25439270b960bf24017d50132b0e66ced8273"
+      },
+      "vocabulary_size": 50000,
+      "predeclared_markup_terms_present": [
+        "body",
+        "border",
+        "class",
+        "color",
+        "font",
+        "head",
+        "height",
+        "href",
+        "html",
+        "nbsp",
+        "script",
+        "size",
+        "style",
+        "table",
+        "td",
+        "title",
+        "tr",
+        "width"
+      ],
+      "training_markup_token_fraction": 0.00019808283804293014,
+      "training_mean_characters": 839.6479909213181
+    },
+    {
+      "representation": "text_unstripped_html",
+      "C": 2.0,
+      "fit_seconds": 43.263509598000155,
+      "converged": true,
+      "n_iter": [
+        7
+      ],
+      "warning_categories": [],
+      "metrics": {
+        "n": 5099,
+        "ham_support": 3212,
+        "spam_support": 1887,
+        "confusion_matrix": {
+          "tn": 3201,
+          "fp": 11,
+          "fn": 48,
+          "tp": 1839
+        },
+        "accuracy": 0.9884291037458325,
+        "spam_precision": 0.994054054054054,
+        "spam_recall": 0.9745627980922098,
+        "ham_f1": 0.9908682866429346,
+        "spam_f1": 0.9842119347069842,
+        "macro_f1": 0.9875401106749594,
+        "ham_false_positive_rate": 0.003424657534246575
+      },
+      "fitted_state": {
+        "vocabulary_sha256": "29a622d15623d24ec5bab0a3d7075727173054c568fc8f00a4701f4cad81e681",
+        "idf_sha256": "b5a5cc277baf23373f4295901a9b0ce0832c4ff3dcf244ec1ae7fc1f2e989a20"
+      },
+      "vocabulary_size": 50000,
+      "predeclared_markup_terms_present": [
+        "align",
+        "body",
+        "border",
+        "cellpadding",
+        "cellspacing",
+        "class",
+        "color",
+        "div",
+        "font",
+        "head",
+        "height",
+        "href",
+        "html",
+        "meta",
+        "nbsp",
+        "script",
+        "size",
+        "span",
+        "style",
+        "table",
+        "td",
+        "title",
+        "tr",
+        "width"
+      ],
+      "training_markup_token_fraction": 0.0022091408030380233,
+      "training_mean_characters": 849.3330951580363
+    }
+  ],
+  "representation": "text_clean",
+  "selection_rule": "validation macro-F1 descending, ham FPR ascending, spam recall descending, exact tie prefers text_clean",
+  "final_validation_metrics": {
+    "majority": {
+      "n": 5099,
+      "ham_support": 3212,
+      "spam_support": 1887,
+      "confusion_matrix": {
+        "tn": 3212,
+        "fp": 0,
+        "fn": 1887,
+        "tp": 0
+      },
+      "accuracy": 0.6299274367523043,
+      "spam_precision": 0.0,
+      "spam_recall": 0.0,
+      "ham_f1": 0.7729515100469256,
+      "spam_f1": 0.0,
+      "macro_f1": 0.3864757550234628,
+      "ham_false_positive_rate": 0.0
+    },
+    "nb": {
+      "n": 5099,
+      "ham_support": 3212,
+      "spam_support": 1887,
+      "confusion_matrix": {
+        "tn": 3086,
+        "fp": 126,
+        "fn": 84,
+        "tp": 1803
+      },
+      "accuracy": 0.9588154540105903,
+      "spam_precision": 0.9346811819595645,
+      "spam_recall": 0.9554848966613673,
+      "ham_f1": 0.9670949545596991,
+      "spam_f1": 0.9449685534591195,
+      "macro_f1": 0.9560317540094092,
+      "ham_false_positive_rate": 0.03922789539227895
+    },
+    "lr": {
+      "n": 5099,
+      "ham_support": 3212,
+      "spam_support": 1887,
+      "confusion_matrix": {
+        "tn": 3201,
+        "fp": 11,
+        "fn": 47,
+        "tp": 1840
+      },
+      "accuracy": 0.9886252206314964,
+      "spam_precision": 0.9940572663425176,
+      "spam_recall": 0.9750927397986221,
+      "ham_f1": 0.9910216718266254,
+      "spam_f1": 0.9844836811128946,
+      "macro_f1": 0.98775267646976,
+      "ham_false_positive_rate": 0.003424657534246575
+    }
+  },
+  "changed_text_rows": {
+    "train": 156,
+    "validation": 36
+  },
+  "markup_note": "Predeclared HTML-like words are a noise proxy; some also occur in legitimate plain text. No full vocabulary is published.",
+  "schema_version": 1,
+  "clean_arm_reproduced_stage06": true,
+  "test_metrics_computed": false
+}
