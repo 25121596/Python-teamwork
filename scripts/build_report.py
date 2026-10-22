@@ -247,7 +247,7 @@ def build():
     p('PPT 与约 5 分钟真实讲解视频需在 2026 年 10 月 31 日以前提交学习通，命名为“组号_6_组长姓名.pptx/.mp4”。Word 在 11 月 8 日晚 12 点前提交学习通，纸质版交未来技术学院 418。视频录制、成员信息及课程平台提交仍由小组完成。')
     OUT.mkdir(exist_ok=True)
     doc.save(OUT/'项目报告.docx')
-    (OUT/'项目报告.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
+    (OUT/'项目报告.md').write_text('\n'.join(md).rstrip()+'\n',encoding='utf-8')
     print(json.dumps({'output':str(OUT/'项目报告.docx'),'template':str(TEMPLATE),'status':'real experiments complete; member fields pending'},ensure_ascii=False))
 
 

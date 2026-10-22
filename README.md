@@ -12,24 +12,39 @@
 
 **当前范围**
 
-已完成前六步：环境、索引、全量清洗、去重冻结划分、EDA/分词/TF-IDF，以及基线和两种模型比较。保留 33,988 封代表，训练/验证/测试为 23,792 / 5,099 / 5,097，三套特征共用训练侧学到的 50,000 维词表。七次验证实验选出 LR C=2（验证 macro-F1 98.78%）；下一步做 HTML 清洗对照，最终测试分类成绩尚未计算。公开聚合证据与图表，正文、去重账本、完整词频、矩阵、拟合模型与逐封预测留在本地。
+真实第 1—8 步已执行并核验，报告和 PPT 已补入实测结果。64,620 封邮件保留 33,988 封去重代表，训练/验证/测试为 23,792 / 5,099 / 5,097。验证及 HTML 对照后锁定去标签文本、NB α=0.1 与 LR C=2。最终 LR 准确率 **99.22%**、macro-F1 **99.16%**，正常误报 **11** 封、垃圾漏报 **29** 封；对应独立验收通过。
+
+[11 页教师模板报告与 8 页实测 PPT](deliverables/README.md) 已检查。56 个模型错误实例有 AI 辅助安全概述，成员全文确认、个人信息/实际分工、五分钟真实讲解视频及课程提交仍待完成。公开仓库只含代码、聚合证据、固定划分元数据和脱敏概述，正文、完整词表、矩阵、模型及逐封预测保持私有。
+
+续作按真实阶段分别 commit，见 [完整提交与交付状态](docs/stages/10a_交付复核与上传状态.md)。GitHub 应用写入仍被 403 阻塞，**尚未上传成功**；完整本地历史随 Git bundle 提供。
 
 建议主线：邮件解析清洗 → 内容去重与固定划分 → 探索分析 → jieba 与 TF-IDF → 朴素贝叶斯及逻辑回归 → 评估解释。
 
-**在 Windows 建立环境**
+**复核发布结果与重新运行的区别**
 
-使用 64 位 Python 3.12。以下 PowerShell 命令在仓库根目录执行；新电脑需先安装相应 Python 并完成 GitHub 协作者配置。
+公开结果和 `final_lock.json` 绑定本次实际模型与上游文件指纹。保留这些证据，不在发布目录原地重跑上游，也不删除锁或测试访问标记来重新选型。同一运行的验收须使用对应的私有缓存；私有文件不随 Git 上传。
+
+新电脑先按 [bundle 恢复步骤](docs/stages/10a_交付复核与上传状态.md) 取得完整分支。在恢复的仓库内，从测试前版本建立独立工作目录，再重新执行实验：
 
 ```powershell
-git clone https://github.com/25121596/Python-teamwork.git
-cd Python-teamwork
+git worktree add -b reproduce-course ../Python-teamwork-reproduce b4a5299
+cd ../Python-teamwork-reproduce
+```
+
+该版本含完整第七八步程序，但尚未产生最终锁或测试成绩。按下文建立环境、配置原始语料，再逐步生成和独立核验。保持原规则、参数网格和冻结 ID，不为匹配发布成绩而调参。新运行独立保存，不覆盖已发布证据；跨平台词表截断和归档指纹可能不同，见 [本轮复现差异](docs/stages/06c_真实语料复现与差异说明.md)。`b4a5299` 目前随本地 Git bundle 提供，GitHub 同步仍受应用授权限制。
+
+**在 Windows 建立环境**
+
+使用 64 位 Python 3.12。以下 PowerShell 命令在上节建立的独立复现目录执行。后文上游生成命令均用于该目录，不在含最终锁的发布目录重跑。
+
+```powershell
 if (-not (Test-Path .venv)) { py -3.12 -m venv .venv }
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 if (-not (Test-Path config.local.json)) { Copy-Item config.example.json config.local.json }
 .\.venv\Scripts\python.exe scripts\check_environment.py
 ```
 
-若没有 `py` 启动器，使用已安装的 Python 3.12 解释器完整路径执行 `-m venv .venv`。不要覆盖已经建好的虚拟环境或本地配置。当前电脑的项目虚拟环境已建立，可直接运行最后一条检查命令。
+若没有 `py` 启动器，使用已安装的 Python 3.12 解释器完整路径执行 `-m venv .venv`。不要覆盖已经建好的虚拟环境或本地配置。本轮运行采用独立 Linux 环境；其他电脑按自己的解释器位置执行，不假定已经存在 .venv。
 
 不必执行激活脚本，直接调用 `.venv\Scripts\python.exe` 即可，避免 PowerShell 执行策略以及 `pip` 指向其他解释器的问题。
 
@@ -76,7 +91,7 @@ $env:TREC06C_ROOT = 'D:/课程数据/trec06c'
 
 安全摘要写入 `artifacts/audit/environment_check.json`，不含个人绝对路径、收发件地址或邮件正文。可通过 `--config` 和 `--output` 指定其他配置或输出；相对参数均以项目根目录为基准。
 
-目前可执行入口包括环境检查、索引审计、邮件解析清洗、去重划分、EDA/特征，以及验证集模型比较与核验。后续为清洗对照和最终评估。
+当前已提供第 1—8 步全部生成与验收入口。每步先核对来源，失败即停止。
 
 **第二阶段索引审计**
 
@@ -199,7 +214,7 @@ jieba 采用精确模式、HMM=False，固定停用词与词典指纹；保留�
 
 **第七、八阶段续作**
 
-程序和合成检查已实现，真实对照与最终测试尚未执行。新环境先恢复第 2—6 步的私有缓存和固定依赖，再逐条执行，前一步失败时停止：
+真实对照和最终测试均已完成；以下是独立复现实验的执行顺序。先恢复第 2—6 步私有缓存及固定依赖，逐条执行，失败即停止：
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\check_readiness.py
@@ -211,9 +226,11 @@ jieba 采用精确模式、HMM=False，固定停用词与词典指纹；保留�
 
 清洗对照只使用训练/验证，必须重现第六步去标签臂后才能生成 `final_lock.json`。最终测试先校验锁及独立验收，只预测，不重选模型。错误分析的真实文本保存在被忽略的 `artifacts/processed/stage08/error_review.json`，需人工逐例复核；自动标记不是错因结论。详情见 [第七步](docs/stages/07_HTML清洗对照与方案锁定.md)、[第八步](docs/stages/08_最终测试与错误分析流程.md)。
 
-**第九、十阶段材料草稿**
+**第九、十阶段交付材料**
 
-[交付目录](deliverables/README.md) 包含六页可编辑 Word、八页可编辑 PPT、逐页五分钟讲稿和答辩提纲。正文、表格与讲解均使用既有真实验证结果，原教师模板、成员信息、真实对照/测试、人工错分结论及正式视频仍待补齐。不会把合成测试分数当作课程实验结果。
+[交付目录](deliverables/README.md) 包含 11 页教师模板 Word、同源 Markdown、8 页可编辑 PPT、五分钟讲稿和 15 问答辩提纲。正文与讲解严格区分验证、清洗对照和最终测试。成员信息、个人实际贡献、人工错分确认及正式讲解视频仍待补齐，课程平台和纸质提交未代办。
+
+AI 辅助分析见 [真实错分概述](docs/真实错分分析.md)，长文检查首中尾选段，原始候选保留待人工签认。`publish_error_review.py` 只在同一锁及私有注释完整匹配时导出安全概述，不覆盖最终锁中的结果。成员确认后应另存有真实审核者和范围的记录，不把 AI 状态直接改成人工完成。
 
 本轮按阶段分别提交，完整提交索引、当前上传阻塞及接入方法见 [交付复核](docs/stages/10a_交付复核与上传状态.md)。
 
@@ -237,10 +254,10 @@ notebooks/              后续探索和展示过程
 artifacts/audit/        聚合质量与环境记录
 artifacts/processed/    本地邮件文本缓存，Git 忽略
 artifacts/splits/       开发样本与正式冻结划分元数据
-artifacts/metrics/      聚合验证模型指标与配置
-artifacts/figures/      EDA、词覆盖与验证比较图
+artifacts/metrics/      验证、对照、最终指标及脱敏分析
+artifacts/figures/      EDA、词覆盖、验证和最终测试图
 artifacts/models/       本地模型缓存，Git 忽略
-deliverables/           后续 Word、PPT 与汇报材料
+deliverables/           教师模板 Word、PPT 与讲稿材料
 docs/stages/            每阶段的 Markdown 记录
 ```
 

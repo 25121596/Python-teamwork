@@ -35,16 +35,39 @@ def check(root: Path) -> dict:
             versions[key] = None
         if versions[key] != selection["versions"][key]:
             differences[key] = {"recorded": selection["versions"][key], "current": versions[key]}
+    template_available = (root / "docs/references/项目报告模板.docx").is_file()
+    locked_run = (root / "artifacts/metrics/final_lock.json").is_file()
+    final_record = (root / "artifacts/metrics/final_evaluation.json").is_file()
+    required = [
+        "Confirmed group number, leader, member names and student IDs",
+        "Actual member contributions and human confirmation of error analysis",
+        "Recorded five-minute presentation and course upload confirmation",
+    ]
+    if not template_available:
+        required.insert(0, "Teacher's original Word template")
+    if final_record:
+        next_action = (
+            "Final results already exist. Preserve the lock and published evidence. "
+            "Use check_final_results.py only with the matching private inputs; "
+            "for a new machine, follow README's independent pre-test worktree workflow. "
+            "Do not rerun upstream stages or model selection in this locked run."
+        )
+    elif locked_run:
+        next_action = "A final lock exists. Verify its matching inputs and audits before final evaluation; do not overwrite upstream evidence."
+    elif not missing and not differences:
+        next_action = "Private inputs and versions exist; use the strict stage-seven audits. This preflight alone is not an experiment verification."
+    else:
+        next_action = "Restore the original corpus outside this repository and rebuild stages 2–6 in a compatible independent worktree; retain frozen split CSVs."
     return {
         "scope": "File existence and runtime metadata only; no corpus experiment executed.",
         "missing_private_inputs": missing,
         "runtime_differences_from_stage06": differences,
         "can_reuse_stage06_caches": not missing and not differences,
-        "required_for_course_submission": [
-            "Teacher's original Word template", "Confirmed group number, leader, member names and student IDs",
-            "Actual member contributions", "Recorded five-minute presentation and course upload confirmation",
-        ],
-        "next_action": "Restore the original corpus outside this repository and rebuild stages 2–6 in a compatible environment; retain frozen split CSVs.",
+        "teacher_template_available": template_available,
+        "locked_run_present": locked_run,
+        "final_evaluation_record_present": final_record,
+        "required_for_course_submission": required,
+        "next_action": next_action,
     }
 
 
