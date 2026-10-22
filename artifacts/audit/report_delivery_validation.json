@@ -1,0 +1,16 @@
+{
+  "scope": "Rendered document and source comparison; student identity, sign-off and native Word print check pending.",
+  "page_count": 11,
+  "visual_review": "All 11 pages inspected; final cover rechecked and pages 2–11 pixel-identical to inspected render.",
+  "checks": {
+    "a4_template_geometry_preserved": true,
+    "toc_matches_headings": true,
+    "seven_validation_rows_match": true,
+    "three_test_rows_match": true,
+    "no_blank_overflow_pages": true
+  },
+  "docx_sha256": "96bd1fa65e47b11c37f7a2950b802ba4c9ac2ce79ce11486debbe4f4d66210b6",
+  "markdown_sha256": "7d1e330b2e401d684557c061cd4b56e63923ee650db984d9df5ce458fcbb3523",
+  "teacher_template_sha256": "6afd2f1b5fb6c1843a4d8f6909a04519b23fa47ee8314f8e38c6d0e06a617711",
+  "passed": true
+}
