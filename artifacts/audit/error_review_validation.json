@@ -1,0 +1,17 @@
+{
+  "scope": "Export privacy and locked-evidence preservation; AI review is not human confirmation.",
+  "checks": {
+    "private_email_rejected": true,
+    "case_order_rejected": true,
+    "missing_review_rejected": true,
+    "unknown_reading_scope_rejected": true,
+    "stale_final_audit_rejected": true,
+    "locked_outputs_unchanged": true,
+    "case_count_56": true,
+    "human_confirmation_still_pending": true,
+    "private_original_unmodified": true,
+    "public_keys_exclude_private_fields": true
+  },
+  "public_review_sha256": "198dd8b0dce898d7f4ae56a06f4de20c6f266499578c1af824b15e41a7524c9f",
+  "passed": true
+}

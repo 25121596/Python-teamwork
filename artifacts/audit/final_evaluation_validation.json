@@ -1,0 +1,15 @@
+{
+  "scope": "Independent arithmetic and locked model replay; no fitting",
+  "checks": {
+    "prediction_alignment": true,
+    "pretest_model_selection_preserved": true,
+    "majority_metrics": true,
+    "majority_reloaded_predictions": true,
+    "nb_metrics": true,
+    "nb_reloaded_predictions": true,
+    "lr_metrics": true,
+    "lr_reloaded_predictions": true
+  },
+  "final_evaluation_sha256": "9a9a83f5339a7e32ed43483a816fb8cf99a8c7bb5445b14b38307711faec5fb3",
+  "passed": true
+}

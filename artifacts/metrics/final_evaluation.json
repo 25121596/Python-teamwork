@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "scope": "Frozen final test; no fit or parameter selection",
+  "lock_sha256": "b8bddf2da3c4d0933c18d116419b56080498b94d136db177a06bfb5206d3b647",
+  "evaluation_source_sha256": "a143d8f9301d0cd08eadd29461f5b5f205259c767e4047484ab4bdce98eeacaa",
+  "representation": "text_clean",
+  "selected_model_before_test": "lr",
+  "metrics": {
+    "majority": {
+      "n": 5097,
+      "ham_support": 3211,
+      "spam_support": 1886,
+      "confusion_matrix": {
+        "tn": 3211,
+        "fp": 0,
+        "fn": 1886,
+        "tp": 0
+      },
+      "accuracy": 0.6299784186776535,
+      "spam_precision": 0.0,
+      "spam_recall": 0.0,
+      "ham_f1": 0.7729898892633607,
+      "spam_f1": 0.0,
+      "macro_f1": 0.3864949446316803,
+      "ham_false_positive_rate": 0.0
+    },
+    "nb": {
+      "n": 5097,
+      "ham_support": 3211,
+      "spam_support": 1886,
+      "confusion_matrix": {
+        "tn": 3077,
+        "fp": 134,
+        "fn": 61,
+        "tp": 1825
+      },
+      "accuracy": 0.9617422012948793,
+      "spam_precision": 0.9315977539561,
+      "spam_recall": 0.9676564156945917,
+      "ham_f1": 0.9692865018113088,
+      "spam_f1": 0.9492847854356306,
+      "macro_f1": 0.9592856436234697,
+      "ham_false_positive_rate": 0.0417315478044223
+    },
+    "lr": {
+      "n": 5097,
+      "ham_support": 3211,
+      "spam_support": 1886,
+      "confusion_matrix": {
+        "tn": 3200,
+        "fp": 11,
+        "fn": 29,
+        "tp": 1857
+      },
+      "accuracy": 0.9921522464194624,
+      "spam_precision": 0.9941113490364025,
+      "spam_recall": 0.9846235418875928,
+      "ham_f1": 0.9937888198757763,
+      "spam_f1": 0.9893446989877465,
+      "macro_f1": 0.9915667594317614,
+      "ham_false_positive_rate": 0.003425724073497353
+    }
+  },
+  "output_sha256": {
+    "artifacts/figures/stage08_nb_confusion.png": "d69cd3191983f6563f74cd7a005b9f8a16b26304785cd4500588348f80f0bc40",
+    "artifacts/figures/stage08_lr_confusion.png": "dee97b0ed1571cee1e27f2b064aebb179b7428dfae5d65f8b5958c3e89e5f181",
+    "artifacts/figures/stage08_lr_public_terms.png": "bbcf65f43502288849bdc653859b27896bf8d87581f96a146300a2a78d97ade9",
+    "artifacts/processed/stage08/test_predictions.npz": "32fd8bd58b68fae2ce8bd4bdef5e161d9ff309bbaf3fe2d697df3e9340e98456",
+    "artifacts/metrics/error_analysis.json": "451f435d3f64530d9174d211beb5a9d2b1e45eaea1690e7216d6ebd19e2ff1f9",
+    "artifacts/metrics/stage08_test.csv": "be227cb6abe141a1f1394fd913b82983cccd10a3e1ab1318d0fb820d9bed29cc"
+  },
+  "semantic_review_status": "pending",
+  "passed": true
+}
