@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>《Python 数据分析编程》项目报告与课程汇报要求</title>
+<style>
+  :root { --ink:#1f2430; --muted:#6b7280; --line:#e2e5ea; --brand:#1d4ed8; --soft:#f5f7fa; }
+  * { box-sizing: border-box; }
+  body { margin:0; color:var(--ink); background:#eef0f3;
+         font:15px/1.8 "Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif; }
+  .page { max-width: 920px; margin: 24px auto; background:#fff; padding: 48px 56px 40px;
+          box-shadow: 0 1px 6px rgba(0,0,0,.08); }
+  h1 { font-size: 25px; margin: 0 0 6px; text-align:center; }
+  .subtitle { text-align:center; color:var(--muted); font-size:14px; margin-bottom:18px; }
+  .meta { display:flex; justify-content:center; gap:18px; color:var(--muted); font-size:13px;
+          border-bottom:2px solid var(--ink); padding-bottom:14px; margin-bottom:20px; flex-wrap:wrap; }
+  h2 { font-size: 19px; margin: 34px 0 10px; padding-left: 10px; border-left: 4px solid var(--brand); }
+  h3 { font-size: 16.5px; margin: 26px 0 6px; }
+  p { margin: 6px 0; }
+  ul { margin:6px 0; padding-left:1.7em; }
+  li { margin:3px 0; }
+  .fields .label { font-weight:700; }
+  .tip { background:#fffbeb; border:1px solid #fcd34d; border-radius:8px; padding:12px 18px; margin:12px 0; }
+  .tip.blue { background:#eff6ff; border-color:#bfdbfe; }
+  .tip h4 { margin:0 0 6px; font-size:14.5px; color:#92400e; }
+  .tip.blue h4 { color:#1d4ed8; }
+  .tag { display:inline-block; font-size:12px; border-radius:10px; padding:0 9px; margin-left:8px;
+         vertical-align:2px; background:var(--soft); border:1px solid var(--line); color:var(--muted); }
+  .tag.sys { background:#eff6ff; border-color:#bfdbfe; color:#1d4ed8; }
+  .tag.soc { background:#f0fdf4; border-color:#bbf7d0; color:#15803d; }
+  .tag.ml  { background:#faf5ff; border-color:#e9d5ff; color:#7e22ce; }
+  table { border-collapse: collapse; width:100%; margin:10px 0 6px; font-size:13.5px; }
+  th, td { border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top; }
+  th { background:var(--soft); font-weight:700; white-space:nowrap; }
+  code { background:var(--soft); border:1px solid var(--line); border-radius:4px;
+         padding:0 5px; font:12.5px/1.6 Consolas,monospace; }
+  .note { color:var(--muted); font-size:13px; margin:4px 0; }
+  footer { margin-top:36px; padding-top:14px; border-top:1px solid var(--line);
+           color:var(--muted); font-size:12.5px; }
+  /* 目录导航 */
+  html { scroll-behavior: smooth; }
+  h2, h3 { scroll-margin-top: 14px; }
+  .toc-toggle { position: fixed; right: 18px; bottom: 18px; z-index: 60; border: 1px solid var(--line);
+    background: #fff; color: var(--ink); border-radius: 20px; padding: 8px 16px; font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15); cursor: pointer; }
+  .toc-panel { position: fixed; right: 18px; bottom: 64px; z-index: 60; width: 300px; max-height: 70vh;
+    overflow: auto; background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.18); padding: 10px 6px; display: none; }
+  .toc-panel.open { display: block; }
+  .toc-panel a { display: block; padding: 5px 14px; color: var(--ink); text-decoration: none;
+    border-radius: 6px; font-size: 14px; }
+  .toc-panel a:hover { background: var(--soft); color: var(--brand); }
+  .toc-panel a.sub { padding-left: 30px; font-size: 13px; color: var(--muted); }
+  .toc-panel a.top { font-weight: 700; }
+  @media print {
+    body { background:#fff; } .page { box-shadow:none; margin:0; max-width:none; padding:10mm 12mm; }
+    h2 { break-after: avoid; } h3 { break-after: avoid; }
+    .toc-toggle, .toc-panel { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1 id="top">《Python 数据分析编程》<br>项目报告与课程汇报要求</h1>
+  <div class="subtitle">课程综合实践环节</div>
+  <div class="meta">
+    <span>3 人一组</span><span>六题任选其一</span><span>第八周课堂汇报</span>
+  </div>
+
+  <h2 id="sec-1">一、总则</h2>
+  <p>本项目为课程综合实践环节，<strong>3 人一组</strong>， <strong>6 道题目中任选一题</strong>，完成数据分析全流程（数据清洗 → 探索性分析 → 建模（如适用）→ 结果解释与建议），并撰写项目报告、参加第八周课堂汇报。</p>
+
+  <h2 id="sec-2">二、成绩构成</h2>
+  <p><strong>项目报告（40%）+ 课堂汇报（20%）</strong>，根据报告、代码与汇报表现综合评定。</p>
+
+  <h2 id="sec-3">三、组队与选题</h2>
+  <ul>
+    <li><strong>组队方式：</strong>3 人一组，自由组队</li>
+    <li><strong>组队信息填写：</strong>在腾讯文档中提交小组信息</li>
+    <li><strong>组队截止日期：</strong><strong>2026 年 10 月 19日（周一）20:00</strong>。逾期未报者统一分配组队与选题。</li>
+  </ul>
+
+  <h2 id="sec-4">四、可选题目</h2>
+  <p>六道题任选其一，<strong>每道题最多可以有6组选，</strong>各题数据均通过学习通平台获取。</p>
+
+  <h3 id="topic-1">题目一　无人机飞行遥测分析与异常检测 </h3>
+  <div class="fields">
+    <p><span class="label">项目描述：</span>无人机在飞行过程中会产生大量遥测数据，包括时间戳、高度、地速与空速、姿态角（俯仰/横滚/偏航）、电池电压与电流、电机转速、垂向加速度、GPS 卫星数与定位精度等。请对给定的飞行遥测数据进行清洗与分析，还原完整飞行过程，识别其中的异常飞行片段，并结合数据对异常原因做出判断。</p>
+    <p><span class="label">数据说明：</span>无人机飞行遥测数据（CSV，约 10000 行，10 Hz 采样，约 16.7 分钟飞行记录），字段涵盖上述各项，字段名为英文缩写（如 <code>altitude_agl_m</code>、<code>battery_voltage_v</code>、<code>motor_rpm</code>）。</p>
+    <p><span class="label">涉及知识：</span>数据清洗、时间序列分析、特征提取、相关性分析、数据可视化、异常检测（3σ 准则、IQR、孤立森林等）。</p>
+    <p><span class="label">基本任务：</span></p>
+    <ul>
+      <li>清洗数据，处理缺失值、重复记录与明显异常点；</li>
+      <li>按时间重建飞行过程，结合高度、速度等信号识别起飞、爬升、巡航、盘旋、降落等飞行阶段；</li>
+      <li>分析电池电压、电流随时间的变化，研究其与电机转速、飞行阶段的关系；</li>
+      <li>至少使用一种方法检测异常飞行片段，并结合业务背景解释；</li>
+      <li>用图表清晰展示分析结论。</li>
+    </ul>
+    <p>报告含时序图、相关性与异常分析图表。</p>
+  </div>
+
+  <h3 id="topic-2">题目二　车辆物联网遥测数据分析与告警识别</h3>
+  <div class="fields">
+    <p><span class="label">项目描述：</span>智能网联汽车在运行过程中会持续上传大量车载传感器与 OBD 诊断数据。请对给定的车辆遥测数据进行清洗与规整，分析车辆运行状态与驾驶特征，识别其中的告警事件，并结合数据对告警成因做出判断。</p>
+    <p><span class="label">数据说明：</span>车辆物联网遥测数据（CSV，约 17 万条，<strong>长表格式</strong>，含 3 台设备、50 余种传感器变量与告警类别字段 <code>alarmClass</code>，其中 0 表示正常、1–5 表示不同告警类别）。</p>
+    <p><span class="label">涉及知识：</span>数据清洗（字段拆分、类型转换、时间解析）、数据规整（长表转宽表）、分组聚合、相关性分析、数据可视化、分类与异常识别。</p>
+    <p><span class="label">基本任务：</span></p>
+    <ul>
+      <li>清洗数据，解析时间戳，将定位字段（POSITION，"纬度,经度,海拔"格式）拆分为三列，统一各字段数值类型；</li>
+      <li>将长表规整为宽表（按时间对齐各传感器变量），处理缺失值与重复记录；</li>
+      <li>分析车速、发动机转速、加速度等随时间的变化，比较不同车辆的运行特征；</li>
+      <li>识别并分析告警事件，研究各类告警与车辆运行状态之间的关系；</li>
+      <li>尝试建立模型对告警事件进行分类或识别，并评估效果；用图表展示分析结论。</li>
+    </ul>
+    <p>报告含时序图、数据规整过程与告警分析图表。</p>
+  </div>
+
+  <h3 id="topic-3">题目三　无人设备电池健康评估与剩余寿命预测</h3>
+  <div class="fields">
+    <p><span class="label">项目描述：</span>电池是无人机、无人车等设备续航与安全的关键。锂离子电池会随充放电循环逐渐老化，容量衰减、内阻上升。请基于电池充放电循环数据，分析容量退化规律，建立电池健康/剩余寿命（或续航）的预测模型，并讨论预测的不确定性。</p>
+    <p><span class="label">数据说明：</span>锂离子电池充放电循环数据（CSV，636 行，4 个电池个体 B0005/B0006/B0007/B0018 的逐循环放电容量（Ah，1.15–2.04），恒温 24 °C，整理自 NASA PCoE 公开电池老化数据集）。</p>
+    <p><span class="label">涉及知识：</span>时序数据清洗、特征提取、回归/时序建模、模型比较与评估、不确定性讨论。</p>
+    <p><span class="label">基本任务：</span></p>
+    <ul>
+      <li>数据探索：可视化电池容量随循环次数的退化曲线，识别不同电池个体间的差异；</li>
+      <li>特征与建模：提取退化相关特征，构建模型预测容量/剩余寿命，<strong>比较至少两种方法</strong>（如简单回归与机器学习方法）；</li>
+      <li>评估与不确定性：评估预测误差，讨论在"提前预警"与"寿命外推"场景下的不确定性与风险；</li>
+      <li>建议：针对电池使用、维护或更换策略提出有数据支撑的建议。</li>
+    </ul>
+    <p>报告含退化曲线、模型对比与评估图表。</p>
+  </div>
+
+  <h3 id="topic-4">题目四　城市电力负荷分析与预测</h3>
+  <div class="fields">
+    <p><span class="label">项目描述：</span>以城市电力负荷监测数据为对象，分析负荷随时间（小时、星期、季节）的变化规律，研究气象因素（温度、湿度、风速）对负荷的影响，并建立模型对短期电力负荷进行预测，为电网调度提供参考。</p>
+    <p><span class="label">数据说明：</span>城市电力负荷数据（CSV，约 5 万条，10 分钟采样，2017 年全年，含温度、湿度、风速及三个分区负荷）。</p>
+    <p><span class="label">涉及知识：</span>数据清洗、时间序列分析、相关性分析、回归建模、数据可视化。</p>
+    <p><span class="label">基本任务：</span></p>
+    <ul>
+      <li>清洗数据，统一时间粒度，规整列名，处理异常值与不合理取值；</li>
+      <li>分析负荷在日、周、季节尺度上的变化规律，比较不同分区的用电特征；</li>
+      <li>研究气象因素与负荷之间的相关性（热力图）；</li>
+      <li>建立回归或时间序列模型预测短期负荷，<strong>比较至少两种模型</strong>，用 MSE、RMSE 等指标评估；</li>
+      <li>用图表展示负荷曲线与预测结果。</li>
+    </ul>
+    <p>报告含可视化图表与模型评估。</p>
+  </div>
+
+  <h3 id="topic-5">题目五　城市共享单车出行时空分析与调度优化</h3>
+  <div class="fields">
+    <p><span class="label">项目描述：</span>共享单车骑行记录蕴含城市居民短途出行的时空规律。请分析出行的时空分布、潮汐规律与站点供需失衡现象，分析用户类型、车辆类型与时段对骑行需求的影响，并提出可落地的车辆调度/投放优化建议。</p>
+    <p><span class="label">数据说明：</span>共享单车骑行数据（CSV，约 24 万条，为 2024 年 1 月单月数据，含起止时间、起止站点、经纬度、车辆类型、会员类型）。</p>
+    <p><span class="label">涉及知识：</span>数据清洗（缺失值处理）、探索性数据分析、时空分析、聚合统计、供需分析、回归/分类建模、数据可视化。</p>
+    <p><span class="label">基本任务：</span></p>
+    <ul>
+      <li>清洗数据，处理站点与经纬度缺失、异常骑行时长（按起止时间重算校验）等记录；</li>
+      <li>分析骑行量在时间（小时/星期）与空间（站点/区域）上的分布，识别骑行热点与潮汐现象；</li>
+      <li>量化站点/区域的供需失衡程度，找出失衡最严重的地点与时段；</li>
+      <li>分析会员类型、车辆类型、时段等因素对骑行需求的影响，并建立模型预测骑行需求、评估效果；</li>
+      <li>基于以上分析，提出针对性的车辆调度/投放策略。</li>
+    </ul>
+    <p>报告含时空可视化与调度建议。</p>
+  </div>
+
+  <h3 id="topic-6">题目六　中文垃圾邮件分类</h3>
+  <div class="fields">
+    <p><span class="label">项目描述：</span>给定一批中文邮件语料（含垃圾邮件与正常邮件），请对邮件进行清洗与解析，提取文本特征，建立分类模型识别垃圾邮件，并分析模型效果与易错样本，为邮件过滤提供依据。</p>
+    <p><span class="label">数据说明：</span>中文邮件语料（TREC 2006 中文垃圾邮件语料，约 6.4 万封，含垃圾/正常标签），邮件为原始格式（RFC822，含邮件头与正文，正文多 HTML），编码以 GBK/GB2312 为主；标签在语料目录的 <code>index</code> 文件中（每行为"spam|ham + 邮件路径"）。</p>
+    <p><span class="label">涉及知识：</span>文本数据清洗（编码转换、HTML 清洗、邮件解析）、中文分词（可用 jieba）、文本向量化（TF-IDF）、分类建模（朴素贝叶斯、逻辑回归、SVM 等）、模型评估。</p>
+    <p><span class="label">基本任务：</span></p>
+    <ul>
+      <li>解析邮件，处理编码与乱码，提取主题与正文，说明处理细节及其对结果的影响；</li>
+      <li>对文本进行分词与特征向量化；</li>
+      <li>建立分类模型，<strong>至少比较两种方法</strong>（如朴素贝叶斯与逻辑回归，或简单规则基线与机器学习模型），用准确率、精确率、召回率、混淆矩阵等评估并解释差异；</li>
+      <li>分析易错样本与高频关键词，得出结论；</li>
+      <li>用图表展示模型效果。</li>
+    </ul>
+    <p class="note">提示：本题文本工程量较大（编码、邮件解析、分词均超出课内讲授范围），适合学有余力、对文本挖掘感兴趣的小组。</p>
+    <p>报告含分类结果与可视化图表。</p>
+  </div>
+
+  <h2 id="sec-5">五、报告要求</h2>
+  <ul>
+    <li><strong>报告模板：</strong>见学习通平台（Word 模板）。报告按模板章节撰写：摘要与关键词 → 引言 → 数据介绍 → 数据清洗与预处理 → 数据分析与建模及可视化 → 总结与结论 → <strong>小组成员分工与个人承担</strong> → 附录。</li>
+    <li><strong>代码与 Git：</strong>小组代码须使用 Git 和 GitHub 进行版本管理。报告附录须注明<strong>代码仓库链接</strong>，"成员分工与个人承担"章节所写的各人负责模块应能与提交记录对应。</li>
+    <li><strong>提交形式：</strong>电子版报告（word）提交至学习通平台，纸质版交到办公室（未来技术学院418）</li>
+    <li><strong>截止时间：</strong>第八周周日（11月8日）晚12点前</li>
+  </ul>
+
+  <h2 id="sec-6">六、第八周课堂汇报安排（20%）</h2>
+  <ul>
+    <li><strong>形式：</strong>每组 <strong>8 分钟</strong> = <strong>播放汇报视频 5 分钟 + 现场问答 3 分钟</strong>，现场不再单独讲 PPT。</li>
+    <li><strong>视频内容：</strong>提前录制的项目汇报视频，以讲解 PPT 为主，可以穿插代码运行或结果演示。</li>
+    <li><strong>提交与命名：</strong>视频与 PPT 于<strong>第七周周六（10月31日）以前</strong>一起提交至学习通。文件命名：<code>组号_题目编号_组长姓名.mp4 / .pptx</code></li>
+  </ul>
+
+  <h2 id="sec-7">七、评分考核维度</h2>
+  <p>项目成绩根据报告、代码与汇报综合评定，主要从以下方面考察：</p>
+  <ul>
+    <li>数据处理与清洗的合理性；</li>
+    <li>数据分析的全面性与深度（含分析对象/数据子集的选择与理由）；</li>
+    <li>方法（模型）选择、运用与评估的质量；</li>
+    <li>数据可视化的有效性；</li>
+    <li>结论的论证充分性与独立思考、创新性；</li>
+    <li>报告结构、表达与团队分工的清晰度。</li>
+  </ul>
+
+  <h2 id="sec-8">八、时间节点一览</h2>
+  <table>
+    <tr><th style="width:14em">时间</th><th>事项</th></tr>
+    <tr><td>本周（课上布置）</td><td>发布本要求，下发报告模板</td></tr>
+    <tr><td><strong>2026 年 10 月 19日（周一）20:00</strong></td><td><strong>组队与选题报名截止</strong>（组长提交组名、成员、选题编号）</td></tr>
+    <tr><td>第 5–7 周</td><td>小组完成数据分析、报告撰写与汇报视频录制</td></tr>
+    <tr><td><strong>第七周周六（10月31日）</strong></td><td><strong>汇报视频 + PPT 截止</strong></td></tr>
+    <tr><td>报告（Word）</td><td>第八周周日（11月8日）晚12点前</td></tr>
+    <tr><td>第八周（4 节课）</td><td>课堂汇报：放视频（5 分钟）+ 问答（3 分钟），每组 8 分钟</td></tr>
+  </table>
+
+</div>
+
+<button class="toc-toggle" id="tocToggle" onclick="toggleToc()">☰ 目录</button>
+<nav class="toc-panel" id="tocPanel" aria-label="目录">
+  <a class="top" href="#top">《Python 数据分析编程》项目报告与课程汇报要求</a>
+  <a href="#sec-1">一、总则</a>
+  <a href="#sec-2">二、成绩构成</a>
+  <a href="#sec-3">三、组队与选题</a>
+  <a href="#sec-4">四、可选题目</a>
+  <a class="sub" href="#topic-1">题目一　无人机飞行遥测分析与异常检测</a>
+  <a class="sub" href="#topic-2">题目二　车辆物联网遥测数据分析与告警识别</a>
+  <a class="sub" href="#topic-3">题目三　无人设备电池健康评估与剩余寿命预测</a>
+  <a class="sub" href="#topic-4">题目四　城市电力负荷分析与预测</a>
+  <a class="sub" href="#topic-5">题目五　城市共享单车出行时空分析与调度优化</a>
+  <a class="sub" href="#topic-6">题目六　中文垃圾邮件分类</a>
+  <a href="#sec-5">五、报告要求</a>
+  <a href="#sec-6">六、第八周课堂汇报安排（20%）</a>
+  <a href="#sec-7">七、评分考核维度</a>
+  <a href="#sec-8">八、时间节点一览</a>
+</nav>
+<script>
+  function toggleToc() {
+    document.getElementById('tocPanel').classList.toggle('open');
+  }
+  document.querySelectorAll('#tocPanel a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.getElementById('tocPanel').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
