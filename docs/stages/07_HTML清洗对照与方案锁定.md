@@ -40,3 +40,5 @@ python scripts/check_ablation.py
 新增 Git 属性将所有公开 audit JSON、metrics JSON/CSV 固定 LF，使 Windows 检出不会改变最终锁引用的字节；开发样本仍保留原记录所需 CRLF。
 
 本阶段独立提交，先保存通过的锁及验收，再执行最终测试。GitHub 应用写入仍为 403，未上传成功。不得删除锁或测试访问记录以重新挑选方案。
+
+> 后续状态更新（2026-10-25）：写入权限已恢复，本分支已推送到远程并核验。
