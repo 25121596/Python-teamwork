@@ -72,7 +72,8 @@ def src_lines(rel: str, pattern: str, before: int = 0, after: int = 0) -> str:
 |---|---|
 | `进度记录.md` | 更新日期、新增说明文档与演示 PPT 条目、修正上传状态描述 |
 | `deliverables/README.md` | 交付材料清单新增两项，说明生成与检查方式，修正 GitHub 同步状态 |
-| `docs/stages/10a_交付复核与上传状态.md` | 记录写入阻塞已解除，保留原始排查过程与 bundle 恢复方式 |
+| `docs/stages/10a_交付复核与上传状态.md` | 记录写入阻塞已解除，保留原始排查过程与远程克隆方式 |
+| `docs/仓库文件用途.md` | 登记本阶段的说明文档、演示 PPT 与两个新脚本条目 |
 
 ## 遗留事项
 
