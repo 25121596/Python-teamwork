@@ -25,7 +25,16 @@
 /config/public_terms_zh.txt text eol=lf
 
 # Stage-six metrics and validation retain their published checksum bytes.
-/artifacts/metrics/model_selection.json text eol=lf
-/artifacts/metrics/stage06_validation.csv text eol=lf
-/artifacts/audit/model_validation.json text eol=lf
-/artifacts/audit/stage06_validation.json text eol=lf
+artifacts/metrics/model_selection.json text eol=lf
+artifacts/metrics/stage06_validation.csv text eol=lf
+artifacts/audit/model_validation.json text eol=lf
+artifacts/audit/stage06_validation.json text eol=lf
+
+# Narrative Markdown is checked out with LF on every platform. With
+# core.autocrlf=true the worktree copy otherwise keeps CRLF and its bytes
+# stop matching the committed blob, which makes the recorded delivery
+# fingerprints unverifiable on a fresh clone.
+/*.md text eol=lf
+/deliverables/*.md text eol=lf
+/docs/*.md text eol=lf
+/docs/stages/*.md text eol=lf
