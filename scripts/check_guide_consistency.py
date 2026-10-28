@@ -26,6 +26,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 GUIDE = ROOT / "docs" / "项目说明文档.md"
+METHOD = ROOT / "docs" / "实现方法详解.md"
 DECK = ROOT / "deliverables" / "项目演示.pptx"
 
 
@@ -129,9 +130,11 @@ def missing_from(text: str, facts: dict[str, str]) -> list[str]:
 
 def run() -> dict:
     guide_text = GUIDE.read_text(encoding="utf-8")
+    method_text = METHOD.read_text(encoding="utf-8")
     facts = expected_facts()
 
     missing_guide = missing_from(guide_text, facts)
+    missing_method = missing_from(method_text, facts)
     try:
         deck = deck_text()
     except (ImportError, KeyError) as exc:
@@ -154,17 +157,20 @@ def run() -> dict:
         "schema_version": 1,
         "scope": "Compare headline figures in the project guide and the deck against published aggregates.",
         "guide": GUIDE.relative_to(ROOT).as_posix(),
+        "method": METHOD.relative_to(ROOT).as_posix(),
         "deck": DECK.relative_to(ROOT).as_posix(),
         "checked_facts": len(facts),
         "missing_in_guide": missing_guide,
+        "missing_in_method": missing_method,
         "missing_in_deck": missing_deck,
         "deck_summary_omissions": sorted(DECK_OMITTED),
         "checks": {
             "artifacts_readable": True,
             "guide_quotes_every_headline_figure": not missing_guide,
+            "method_quotes_every_headline_figure": not missing_method,
             "deck_quotes_every_headline_figure": not missing_deck,
         },
-        "passed": not missing_guide and not missing_deck,
+        "passed": not missing_guide and not missing_method and not missing_deck,
     }
 
 

@@ -2,9 +2,11 @@
   "schema_version": 1,
   "scope": "Compare headline figures in the project guide and the deck against published aggregates.",
   "guide": "docs/项目说明文档.md",
+  "method": "docs/实现方法详解.md",
   "deck": "deliverables/项目演示.pptx",
   "checked_facts": 28,
   "missing_in_guide": [],
+  "missing_in_method": [],
   "missing_in_deck": [],
   "deck_summary_omissions": [
     "duplicates_removed",
@@ -13,6 +15,7 @@
   "checks": {
     "artifacts_readable": true,
     "guide_quotes_every_headline_figure": true,
+    "method_quotes_every_headline_figure": true,
     "deck_quotes_every_headline_figure": true
   },
   "passed": true

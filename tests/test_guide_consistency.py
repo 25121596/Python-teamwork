@@ -45,6 +45,7 @@ def test_facts_are_derived_from_published_aggregates(checker):
 def test_guide_and_deck_match_the_published_evidence(checker):
     report = checker.run()
     assert report["missing_in_guide"] == []
+    assert report["missing_in_method"] == []
     assert report["missing_in_deck"] == []
     assert report["passed"] is True
     assert report["checked_facts"] >= 20
@@ -55,6 +56,13 @@ def test_guide_is_required_to_carry_every_headline_figure(checker):
     guide = checker.GUIDE.read_text(encoding="utf-8")
     missing = checker.missing_from(guide, facts)
     assert missing == [], f"the guide stopped quoting: {missing}"
+
+
+def test_method_document_is_required_to_carry_every_headline_figure(checker):
+    facts = checker.expected_facts()
+    method = checker.METHOD.read_text(encoding="utf-8")
+    missing = checker.missing_from(method, facts)
+    assert missing == [], f"the method document stopped quoting: {missing}"
 
 
 def test_missing_figure_is_reported(checker):
