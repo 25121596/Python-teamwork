@@ -1,0 +1,19 @@
+{
+  "scope": "PPTX structure, source numbers and all 8 rendered slides. Native PowerPoint playback and recorded MP4 not performed.",
+  "slides": 8,
+  "native_charts": 1,
+  "native_tables": 6,
+  "checks": {
+    "package_integrity": true,
+    "layout_zero_findings": true,
+    "layout_zero_warnings": true,
+    "reimport": true,
+    "chart_workbook": true,
+    "table_and_chart_values_match_source": true,
+    "all_eight_slides_visually_reviewed": true,
+    "all_slides_have_notes": true
+  },
+  "pptx_sha256": "de122aafd7e05a1b3cdcfb3b353062951cae1d6c3636a405109bd676544eff3a",
+  "speech_sha256": "93311174a15bb5e286ad69ea1e604bfeac486164635599fa1b1181779ca9a319",
+  "passed": true
+}

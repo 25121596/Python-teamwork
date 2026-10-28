@@ -1,0 +1,13 @@
+{
+  "scope": "File existence and runtime metadata only; no corpus experiment executed.",
+  "missing_private_inputs": [],
+  "runtime_differences_from_stage06": {},
+  "can_reuse_stage06_caches": true,
+  "required_for_course_submission": [
+    "Teacher's original Word template",
+    "Confirmed group number, leader, member names and student IDs",
+    "Actual member contributions",
+    "Recorded five-minute presentation and course upload confirmation"
+  ],
+  "next_action": "Restore the original corpus outside this repository and rebuild stages 2–6 in a compatible environment; retain frozen split CSVs."
+}

@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-21",
+  "base_commit": "cd8e1060de34fd857f5c267f09152d04c7307d4c",
+  "files_read": 93,
+  "scope": "Public repository parsing and synthetic regression only; original email data and caches unavailable.",
+  "checks": {
+    "train_sha256": true,
+    "train_counts": true,
+    "validation_sha256": true,
+    "validation_counts": true,
+    "test_sha256": true,
+    "test_counts": true,
+    "all_representative_ids_unique": true
+  },
+  "split_counts": {
+    "train": {
+      "rows": 23792,
+      "labels": {
+        "spam": 8804,
+        "ham": 14988
+      }
+    },
+    "validation": {
+      "rows": 5099,
+      "labels": {
+        "spam": 1887,
+        "ham": 3212
+      }
+    },
+    "test": {
+      "rows": 5097,
+      "labels": {
+        "spam": 1886,
+        "ham": 3211
+      }
+    }
+  },
+  "synthetic_tests": {
+    "run": 110,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "passed": true
+}

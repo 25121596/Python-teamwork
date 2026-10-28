@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-22",
+  "scope": "Real experiment and document handoff; no student human sign-off, native Office playback, recorded MP4 or course submission claimed.",
+  "file_count": 147,
+  "file_checks": {
+    "utf8_text": 135,
+    "json": 40,
+    "png": 9,
+    "csv": 7,
+    "csv_data_rows": 34400,
+    "pptx": 1,
+    "docx": 2,
+    "python_ast": 43
+  },
+  "checks": {
+    "ablation_validation": true,
+    "final_evaluation_validation": true,
+    "restoration_validation": true,
+    "error_review_validation": true,
+    "report_delivery_validation": true,
+    "presentation_delivery_validation": true,
+    "preflight_missing_template_prelock_locked_and_final_states": true,
+    "all_147_files_read_and_mapped": true,
+    "all_relative_markdown_links_resolve": true,
+    "locked_sources_and_outputs_unchanged": true,
+    "delivery_fingerprints_match": true,
+    "private_files_ignored_not_tracked": true,
+    "regression_tests_128_passed_no_skips": true,
+    "bundle_history_excludes_private_caches_models_and_archives": true
+  },
+  "unit_tests": {
+    "run": 128,
+    "failed": 0,
+    "skipped": 0,
+    "status": "passed"
+  },
+  "lock_sha256": "b8bddf2da3c4d0933c18d116419b56080498b94d136db177a06bfb5206d3b647",
+  "final_evaluation_sha256": "9a9a83f5339a7e32ed43483a816fb8cf99a8c7bb5445b14b38307711faec5fb3",
+  "artifacts": {
+    "report_pages": 11,
+    "presentation_slides": 8,
+    "assisted_error_instances": 56,
+    "human_confirmation": "pending"
+  },
+  "git": {
+    "branch": "complete-project-stages",
+    "latest_experiment_commit": "bf888b0",
+    "report_commit": "a4a6ade",
+    "presentation_commit": "4730c6d",
+    "stage_commits_before_this_handoff": 12,
+    "remote_uploaded": false,
+    "write_attempt_status": "403 Resource not accessible by integration",
+    "final_read_only_check": "Collaborator push=true; only viewer-owned installation visible; branch search returned main only.",
+    "bundle": "Python-teamwork-updates.bundle, created from committed branch and verified after this audit"
+  },
+  "pending": [
+    "Confirmed group/member identity and actual contributions",
+    "Student full-text review and sign-off",
+    "Member recording and MP4 playback",
+    "Native Office print/playback check",
+    "GitHub app authorization and verified push",
+    "Course electronic and paper submission"
+  ],
+  "passed": true
+}

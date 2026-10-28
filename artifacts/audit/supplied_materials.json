@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-22",
+  "sources": {
+    "Python数据分析编程_项目报告与课程汇报要求 (1)(1).html": {
+      "bytes": 19360,
+      "sha256": "5697f6ebfbda9b24bac42b5e8bead0c026ec4f905a0f9a38eff5a50ba262b180"
+    },
+    "项目报告模版 (1)(1).docx": {
+      "bytes": 15554,
+      "sha256": "6afd2f1b5fb6c1843a4d8f6909a04519b23fa47ee8314f8e38c6d0e06a617711"
+    },
+    "题6_中文垃圾邮件_trec06c.zip": {
+      "bytes": 118139295,
+      "sha256": "57e7baf0009d516d4360f7dd5879f9a404c5ae87ae223ad1c7f600d902cdd509"
+    }
+  },
+  "corpus_index_matches_original": true,
+  "archive_extracted_files_excluding_macos_metadata": 64622,
+  "missing_member_information": true,
+  "github_branch_write_result": {
+    "http_status": 403,
+    "message": "Resource not accessible by integration"
+  }
+}

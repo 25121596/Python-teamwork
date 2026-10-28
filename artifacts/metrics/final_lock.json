@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "scope": {
+    "fit": "train_only",
+    "selection": "validation_only",
+    "test_metrics_computed": false
+  },
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit_learn": "1.9.1",
+    "joblib": "1.6.0",
+    "threadpoolctl": "3.7.0"
+  },
+  "source_sha256": "92df7dd7e7c2feb3deda02e675d8e7841adb945a188debb3f8c177267ad6fea2",
+  "representation": "text_clean",
+  "model_names": [
+    "majority",
+    "nb",
+    "lr"
+  ],
+  "selected_model": "lr",
+  "parameters": {
+    "nb": {
+      "alpha": 0.1
+    },
+    "lr": {
+      "C": 2.0
+    }
+  },
+  "decision_rule": "estimator.predict; no threshold tuning; no train+validation refit",
+  "test_rows": 5097,
+  "cleaning_cache_sha256": "16ad78a28dfda98b62608ab7dd50a351ebe5890c7452ee3c185f8a32ae668a01",
+  "split_csv_sha256": {
+    "train": "3d98f3aaa8f889e0c189f78ec8cf7b79ccee82b22b830df75e716583be86da77",
+    "validation": "75b163c8db3c5d55334199e1b1c9cb87abee0e4a6722bec3617fda6c9d6dc003",
+    "test": "3a4410b736ff115ac812bc97b32d629796cdd055059ae3edc7617735dbc82683"
+  },
+  "upstream_sha256": {
+    "artifacts/metrics/model_selection.json": "020fcab136d9b24e321b4396a4c4e698de0ae23bafe2e3434c03afea16cfaa7c",
+    "artifacts/audit/model_validation.json": "8a781e05ae27209e21d12eb4526cd9b76b18876c6b3d93e07a06e9705246f1ae",
+    "artifacts/audit/split_summary.json": "9729ee16c180bb77d166c6943fcff3754230c70bd8ccdd473a0e578d75977048",
+    "artifacts/audit/split_validation.json": "eff2bffa6bacaf3e75507fd3f5d496d4925bf0adcdd9729a86eb1a9ad5e0f0eb",
+    "artifacts/audit/cleaning_summary.json": "5a3796c3a0dd15b23e4703a44c9932493b7a5100d35288fe4135c9c91a16cf21"
+  },
+  "output_sha256": {
+    "artifacts/models/stage07/final_models.joblib": "31441e35a9e32d8f1f4a5b44bb7687717fdcd8f704be0c6134a32fb1a711b551",
+    "artifacts/models/stage07/ablation_models.joblib": "4e2e2724c420dbc1c0267883501f10a762eafca089ef10a7f47ca9493af7d339",
+    "artifacts/processed/stage07/validation_predictions.npz": "726cb3eeade47cbaba7cd7c25b76dc9872f9cd29ba43ee543b69e082ec688e87",
+    "artifacts/metrics/cleaning_ablation.json": "59b7f52d901862a5bc2b6eeeee69ff75cb9776904382d20d7bbbf6a3ed625ff3",
+    "artifacts/metrics/stage07_validation.csv": "72d48394cc039a52755f6b7f1b61a699e3a399b0f33f71e06d33870424a0c6e0"
+  }
+}

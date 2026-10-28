@@ -1,0 +1,55 @@
+{
+  "python": "3.12.14",
+  "platform": "Linux",
+  "machine": "x86_64",
+  "virtual_environment": true,
+  "supported_python": true,
+  "imports": {
+    "numpy": {
+      "ok": true,
+      "version": "2.5.4"
+    },
+    "pandas": {
+      "ok": true,
+      "version": "3.0.6"
+    },
+    "scikit-learn": {
+      "ok": true,
+      "version": "1.9.1"
+    },
+    "jieba": {
+      "ok": true,
+      "version": "0.42.1"
+    },
+    "beautifulsoup4": {
+      "ok": true,
+      "version": "4.15.0"
+    },
+    "matplotlib": {
+      "ok": true,
+      "version": "3.11.2"
+    },
+    "seaborn": {
+      "ok": true,
+      "version": "0.13.2"
+    },
+    "joblib": {
+      "ok": true,
+      "version": "1.6.0"
+    },
+    "ipykernel": {
+      "ok": true,
+      "version": "7.4.0"
+    }
+  },
+  "dataset": {
+    "index_file": "full/index",
+    "data_root_exists": true,
+    "data_directory_exists": true,
+    "index_readable": true,
+    "first_record_valid": true,
+    "first_mail_exists": true
+  },
+  "errors": [],
+  "passed": true
+}

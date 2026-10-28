@@ -127,7 +127,7 @@
     }
   },
   "validator_source_sha256": "b9a72ce65714b0da15a8e27f9797fce70fc34515f6ebab056b11fabe55037f9d",
-  "model_selection_summary_sha256": "87113c58794252eb6d251291a3a832aed276dfcb1fea5094cc47eae636e8e35e",
+  "model_selection_summary_sha256": "020fcab136d9b24e321b4396a4c4e698de0ae23bafe2e3434c03afea16cfaa7c",
   "scope": {
     "fit": "train_only",
     "selection": "validation_only",

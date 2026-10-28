@@ -1,0 +1,15 @@
+{
+  "scope": "File existence and runtime metadata only; no corpus experiment executed.",
+  "missing_private_inputs": [],
+  "runtime_differences_from_stage06": {},
+  "can_reuse_stage06_caches": true,
+  "teacher_template_available": true,
+  "locked_run_present": true,
+  "final_evaluation_record_present": true,
+  "required_for_course_submission": [
+    "Confirmed group number, leader, member names and student IDs",
+    "Actual member contributions and human confirmation of error analysis",
+    "Recorded five-minute presentation and course upload confirmation"
+  ],
+  "next_action": "Final results already exist. Preserve the lock and published evidence. Use check_final_results.py only with the matching private inputs; for a new machine, follow README's independent pre-test worktree workflow. Do not rerun upstream stages or model selection in this locked run."
+}

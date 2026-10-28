@@ -1,0 +1,569 @@
+{
+  "schema_version": 1,
+  "lock_sha256": "b8bddf2da3c4d0933c18d116419b56080498b94d136db177a06bfb5206d3b647",
+  "ai_assisted_review_status": "complete",
+  "human_confirmation_status": "pending",
+  "reviewer_kind": "AI-assisted semantic reading; not student sign-off",
+  "selection": "Up to 15 highest-absolute-score FP and FN per formal model; deterministic mail ID tie break.",
+  "case_count": 56,
+  "sample_caveat": "Highest absolute model scores, not a random sample; category counts cannot estimate all-error prevalence. Observations are hypotheses, not proven causes or relabeling.",
+  "source_review_sha256": "ea3f3df72e445a8d134694ef04182b34157d1f366d7affad58967b241fad4553",
+  "private_notes_sha256": "bdd0fe6f7ddac18ede2dddd90b4a82e837e4489240dea48aea797bf863f87a16",
+  "reason_labels": {
+    "hiring_notice": "招聘通知与商业词重叠",
+    "exam_notice": "查分通知含服务推广词",
+    "link_rich_discussion": "日常讨论含多个链接",
+    "technical_notice": "技术通知以数字表为主",
+    "library_notice": "资源培训通知含服务词",
+    "newsletter": "长篇资讯或评论",
+    "narrative_solicitation": "叙事夹带募捐请求",
+    "context_ambiguous": "正文与垃圾标签需上下文核对",
+    "narrative_promotion": "故事或祝福夹带推广",
+    "short_text": "可用文本过短",
+    "article_promotion": "文章或笑话引流",
+    "fiction_padding": "推广主题搭配小说片段",
+    "policy_service": "政策说明式收费服务",
+    "business_pitch": "合作邀约与收益承诺",
+    "personal_style_promotion": "私人交流式推广"
+  },
+  "counts": {
+    "nb": {
+      "FP": {
+        "hiring_notice": 13,
+        "technical_notice": 1,
+        "library_notice": 1
+      },
+      "FN": {
+        "newsletter": 1,
+        "article_promotion": 4,
+        "narrative_solicitation": 1,
+        "narrative_promotion": 2,
+        "fiction_padding": 2,
+        "short_text": 2,
+        "personal_style_promotion": 3
+      }
+    },
+    "lr": {
+      "FP": {
+        "hiring_notice": 7,
+        "exam_notice": 2,
+        "link_rich_discussion": 2
+      },
+      "FN": {
+        "newsletter": 2,
+        "narrative_solicitation": 1,
+        "context_ambiguous": 1,
+        "narrative_promotion": 2,
+        "short_text": 4,
+        "article_promotion": 1,
+        "fiction_padding": 2,
+        "policy_service": 1,
+        "business_pitch": 1
+      }
+    }
+  },
+  "cases": [
+    {
+      "case_id": "NB-FP-01",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的长篇招聘汇总列出多个企业和营销岗位，公司宣传与职位介绍交织。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FP-02",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签邮件的回复式技术主题与招聘正文不相符；正文密集介绍培训、招商和销售岗位，需留意内容质量。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FP-03",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的多企业岗位汇总含公司、销售和联系词，与商业推广词汇重叠。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FP-04",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的网站设计招聘附长篇公司业务介绍和求职站宣传，商业用语占比较高。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FP-05",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的金融企业多岗位招聘介绍培训、福利和职业发展，含大量业务与推广词。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FP-06",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "technical_notice",
+      "safe_paraphrase": "正常标签的校园免费网络通知主要由地址和掩码数字表组成，语义词稀少且数字密集。",
+      "reading_scope": "subject_and_selected_beginning_middle_end"
+    },
+    {
+      "case_id": "NB-FP-07",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "library_notice",
+      "safe_paraphrase": "正常标签的图书馆培训安排介绍大量数据库和服务，并反复给出联系人，具有资源宣传语气。",
+      "reading_scope": "subject_and_selected_beginning_middle_end"
+    },
+    {
+      "case_id": "NB-FP-08",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的企业招聘转发同时宣传产品和业务，并要求投递简历，具有营销式措辞。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FP-09",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的测试工程师招聘包括供应商介绍、产品宣传及岗位要求，业务描述与招聘混合。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FP-10",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的企业职位表列出多个销售和市场岗位，招聘与促销词汇容易混淆。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FP-11",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的兼职统计岗位附长篇软件企业介绍，产品和销售相关词可能削弱职位语义。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FP-12",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的兼职开发岗位附大量企业产品与管理介绍，岗位文本只占一部分。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FP-13",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "另一封正常标签开发招聘与前例正文高度相似而主题不同，说明仍可能存在近重复模板。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FP-14",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的系统软件岗位同时介绍芯片产品、客户和解决方案，招聘与商业词重叠。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FP-15",
+      "model": "nb",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的学生兼职招聘列出教育项目、报酬和联系方式，词汇与商业邀请相似。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FN-01",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "newsletter",
+      "safe_paraphrase": "垃圾标签的长篇资讯简报以评论和报道为主，末尾含群发软件说明；主题词不等于收件人意愿。",
+      "reading_scope": "subject_and_selected_beginning_middle_end"
+    },
+    {
+      "case_id": "NB-FN-02",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "article_promotion",
+      "safe_paraphrase": "正文为两性话题文章，末尾含平台免责声明及嵌入链接；文章主体可能掩盖引流线索。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FN-03",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "narrative_solicitation",
+      "safe_paraphrase": "个人困境故事重复出现并夹杂乱码，末尾提出捐款请求；叙事可能弱化请求线索，真伪未核实。",
+      "reading_scope": "subject_and_selected_beginning_middle_end"
+    },
+    {
+      "case_id": "NB-FN-04",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "article_promotion",
+      "safe_paraphrase": "以免费学习资料为引导，正文主要讲寓言故事，末尾再引向网站，故事词覆盖了宣传内容。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FN-05",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "narrative_promotion",
+      "safe_paraphrase": "大量节日祝福和笑话后附短信下载服务，推广内容只占末尾一小部分。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FN-06",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "fiction_padding",
+      "safe_paraphrase": "主题推广学车服务，正文以重复小说片段和图片标记为主，业务信息在文本中占比很低。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FN-07",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "article_promotion",
+      "safe_paraphrase": "通知式主题下放置笑话及更多内容链接，正文像娱乐文章，推广目的需要结合末尾判断。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FN-08",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "short_text",
+      "safe_paraphrase": "简短情感主题后仅有少数字母，可用内容很少，无法从正文理解完整意图。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FN-09",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "personal_style_promotion",
+      "safe_paraphrase": "用同事请假的私人聊天口吻引入生活消费网站与优惠信息，推广嵌在日常交流中。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FN-10",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "personal_style_promotion",
+      "safe_paraphrase": "另一封类似请假信将消费网站和优惠信息嵌入熟人式交流，主题与措辞有小幅变化。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FN-11",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "article_promotion",
+      "safe_paraphrase": "笑话正文后邀请访问娱乐网站，并夹杂乱码；娱乐叙事与网站推广混合。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FN-12",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "personal_style_promotion",
+      "safe_paraphrase": "转发式私人体验介绍免费相册网站，含加入和转发邀请，推广包装成好友推荐。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FN-13",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "fiction_padding",
+      "safe_paraphrase": "主题推销饰品，正文却重复小说片段并夹杂乱码、图片追踪标记，广告与正文语义不一致。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FN-14",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "narrative_promotion",
+      "safe_paraphrase": "前半部为笑话集，后半部推销网络传真和群发服务，混合内容可能干扰词袋判断。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FN-15",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "short_text",
+      "safe_paraphrase": "只保留机会邀约式主题，既无具体业务也无正文，信息不足。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FP-01",
+      "model": "lr",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的多企业岗位汇总含公司、销售和联系词，与商业推广词汇重叠。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FP-02",
+      "model": "lr",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的招聘信息简报介绍求职网站、模板和注册入口，带有宣传式表达。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FP-03",
+      "model": "lr",
+      "error_type": "FP",
+      "reason_code": "exam_notice",
+      "safe_paraphrase": "正常标签的考试查分通知同时介绍网络与付费电话、短信方式，含服务推广词。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FP-04",
+      "model": "lr",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的长篇招聘汇总列出多个企业和营销岗位，公司宣传与职位介绍交织。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FP-05",
+      "model": "lr",
+      "error_type": "FP",
+      "reason_code": "exam_notice",
+      "safe_paraphrase": "另一封正常标签查分通知与前例正文相似而主题略异，提示精确去重仍会保留近重复。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FP-06",
+      "model": "lr",
+      "error_type": "FP",
+      "reason_code": "link_rich_discussion",
+      "safe_paraphrase": "正常标签的手工制作讨论附带多个图片或附件链接，文字较少，链接特征较突出。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FP-07",
+      "model": "lr",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的学生兼职招聘列出教育项目、报酬和联系方式，词汇与商业邀请相似。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FP-08",
+      "model": "lr",
+      "error_type": "FP",
+      "reason_code": "link_rich_discussion",
+      "safe_paraphrase": "正常标签的招生目录查询求助列出多个操作链接，正文短，缺少充分上下文。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FP-09",
+      "model": "lr",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的企业招聘转发同时宣传产品和业务，并要求投递简历，具有营销式措辞。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FP-10",
+      "model": "lr",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的金融企业多岗位招聘介绍培训、福利和职业发展，含大量业务与推广词。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FP-11",
+      "model": "lr",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的企业职位表列出多个销售和市场岗位，招聘与促销词汇容易混淆。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-01",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "newsletter",
+      "safe_paraphrase": "垃圾标签的长篇资讯简报以评论和报道为主，末尾含群发软件说明；主题词不等于收件人意愿。",
+      "reading_scope": "subject_and_selected_beginning_middle_end"
+    },
+    {
+      "case_id": "LR-FN-02",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "newsletter",
+      "safe_paraphrase": "垃圾标签邮件通篇为时事评论，缺少常见商品促销模式，仅凭文章内容不能判断收件关系。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-03",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "narrative_solicitation",
+      "safe_paraphrase": "个人困境故事重复出现并夹杂乱码，末尾提出捐款请求；叙事可能弱化请求线索，真伪未核实。",
+      "reading_scope": "subject_and_selected_beginning_middle_end"
+    },
+    {
+      "case_id": "LR-FN-04",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "context_ambiguous",
+      "safe_paraphrase": "垃圾标签邮件主体为中英文求职简历，残留编码头；需结合来源和发送背景复核，保持原标签。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-05",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "narrative_promotion",
+      "safe_paraphrase": "用家庭与学生经历介绍护理产品，再提出招代理和免费资料；故事叙述包裹推广诉求。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-06",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "short_text",
+      "safe_paraphrase": "仅有周末户外邀约主题，没有可用正文，短文本缺少足够的分类线索。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-07",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "short_text",
+      "safe_paraphrase": "仅有招生主题与少量引用符号，缺少课程、发送关系等可供判断的正文。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-08",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "article_promotion",
+      "safe_paraphrase": "正文为两性话题文章，末尾含平台免责声明及嵌入链接；文章主体可能掩盖引流线索。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-09",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "fiction_padding",
+      "safe_paraphrase": "主题推销饰品，正文却重复小说片段并夹杂乱码、图片追踪标记，广告与正文语义不一致。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-10",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "fiction_padding",
+      "safe_paraphrase": "主题推广学车服务，正文以重复小说片段和图片标记为主，业务信息在文本中占比很低。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-11",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "policy_service",
+      "safe_paraphrase": "正文用办事政策和材料清单介绍收费代办服务，部分乱码；通知式行文与推广诉求混合。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-12",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "short_text",
+      "safe_paraphrase": "只保留含折扣的简短主题，正文不可用，难以确定商品与发送场景。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-13",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "business_pitch",
+      "safe_paraphrase": "以寻找创业合作伙伴的口吻介绍项目和收益承诺，包含联系请求，语气接近个人邀请。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-14",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "narrative_promotion",
+      "safe_paraphrase": "大量节日祝福和笑话后附短信下载服务，推广内容只占末尾一小部分。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-15",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "short_text",
+      "safe_paraphrase": "主题介绍英语学习抽奖，仅附地区限制一句，正文信息不足。",
+      "reading_scope": "subject_and_body"
+    }
+  ],
+  "report_examples": [
+    {
+      "case_id": "LR-FP-01",
+      "model": "lr",
+      "error_type": "FP",
+      "reason_code": "hiring_notice",
+      "safe_paraphrase": "正常标签的多企业岗位汇总含公司、销售和联系词，与商业推广词汇重叠。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-10",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "fiction_padding",
+      "safe_paraphrase": "主题推广学车服务，正文以重复小说片段和图片标记为主，业务信息在文本中占比很低。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "LR-FN-06",
+      "model": "lr",
+      "error_type": "FN",
+      "reason_code": "short_text",
+      "safe_paraphrase": "仅有周末户外邀约主题，没有可用正文，短文本缺少足够的分类线索。",
+      "reading_scope": "subject_and_body"
+    },
+    {
+      "case_id": "NB-FN-09",
+      "model": "nb",
+      "error_type": "FN",
+      "reason_code": "personal_style_promotion",
+      "safe_paraphrase": "用同事请假的私人聊天口吻引入生活消费网站与优惠信息，推广嵌在日常交流中。",
+      "reading_scope": "subject_and_body"
+    }
+  ],
+  "interpretation": "误报中可见招聘与商业词重叠；漏报中可见短文本，以及故事或私人聊天包裹推广。它们是内容观察，尚未通过反事实实验验证为模型错因。相似主题、招聘模板与查分通知提示近重复仍可能残留；本次测试后不据此重调模型。",
+  "reading_scope": "逐例核对主题、解析状态与正文；超过四千字符的长邮件检查首、中、尾选段。重复邮件跨模型复用观察。不是学生逐字全文复核。",
+  "slide_examples": [
+    {
+      "case_id": "LR-FP-01",
+      "short_observation": "招聘通知与商业推广词重叠"
+    },
+    {
+      "case_id": "LR-FN-10",
+      "short_observation": "学车推广主题搭配小说片段"
+    },
+    {
+      "case_id": "LR-FN-06",
+      "short_observation": "只有邀约主题，缺少正文"
+    },
+    {
+      "case_id": "NB-FN-09",
+      "short_observation": "私人请假聊天中嵌入消费推广"
+    }
+  ]
+}

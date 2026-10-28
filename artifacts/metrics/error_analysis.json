@@ -1,0 +1,155 @@
+{
+  "diagnostics": {
+    "nb": {
+      "FP": {
+        "all_errors": 134,
+        "review_candidates": 15,
+        "parse_status_counts": {
+          "recovered": 118,
+          "ok": 16
+        },
+        "html_count": 12,
+        "encoding_warning_count": 4,
+        "short_text_le_30_characters_count": 0
+      },
+      "FN": {
+        "all_errors": 61,
+        "review_candidates": 15,
+        "parse_status_counts": {
+          "recovered": 31,
+          "ok": 19,
+          "subject_only": 11
+        },
+        "html_count": 14,
+        "encoding_warning_count": 3,
+        "short_text_le_30_characters_count": 12
+      }
+    },
+    "lr": {
+      "FP": {
+        "all_errors": 11,
+        "review_candidates": 11,
+        "parse_status_counts": {
+          "recovered": 10,
+          "ok": 1
+        },
+        "html_count": 1,
+        "encoding_warning_count": 0,
+        "short_text_le_30_characters_count": 0
+      },
+      "FN": {
+        "all_errors": 29,
+        "review_candidates": 15,
+        "parse_status_counts": {
+          "recovered": 19,
+          "subject_only": 6,
+          "ok": 4
+        },
+        "html_count": 3,
+        "encoding_warning_count": 5,
+        "short_text_le_30_characters_count": 10
+      }
+    }
+  },
+  "public_coefficients": {
+    "scope": "Top signed LR coefficients within the predeclared public whitelist, not the full vocabulary; association is not causation.",
+    "ham": [
+      {
+        "term": "学生",
+        "coefficient": -3.2191439897666623
+      },
+      {
+        "term": "工作",
+        "coefficient": -2.7845113395327634
+      },
+      {
+        "term": "研究",
+        "coefficient": -1.789021481450866
+      },
+      {
+        "term": "学校",
+        "coefficient": -1.5306179345787811
+      },
+      {
+        "term": "问题",
+        "coefficient": -1.1646039520183302
+      },
+      {
+        "term": "老师",
+        "coefficient": -1.0296166444696695
+      },
+      {
+        "term": "通知",
+        "coefficient": -0.45489894147807364
+      },
+      {
+        "term": "时间",
+        "coefficient": -0.3565990460976686
+      },
+      {
+        "term": "活动",
+        "coefficient": -0.24292565608348735
+      },
+      {
+        "term": "会议",
+        "coefficient": -0.20848814609816876
+      },
+      {
+        "term": "欢迎",
+        "coefficient": -0.09819512639964638
+      }
+    ],
+    "spam": [
+      {
+        "term": "urltoken",
+        "coefficient": 12.204943313018617
+      },
+      {
+        "term": "phonetoken",
+        "coefficient": 6.037585072341532
+      },
+      {
+        "term": "免费",
+        "coefficient": 4.62004208993379
+      },
+      {
+        "term": "邮件",
+        "coefficient": 4.389907178561582
+      },
+      {
+        "term": "网站",
+        "coefficient": 4.0622362255300475
+      },
+      {
+        "term": "emailtoken",
+        "coefficient": 3.9554380365155377
+      },
+      {
+        "term": "网络",
+        "coefficient": 3.3219795842424795
+      },
+      {
+        "term": "注册",
+        "coefficient": 3.1324903934575685
+      },
+      {
+        "term": "地址",
+        "coefficient": 2.7567361959568384
+      },
+      {
+        "term": "服务",
+        "coefficient": 2.669868581870935
+      },
+      {
+        "term": "客户",
+        "coefficient": 2.5862365035222665
+      },
+      {
+        "term": "会员",
+        "coefficient": 2.4905120901137665
+      }
+    ]
+  },
+  "semantic_review_status": "pending",
+  "note": "Quality flags are descriptive observations, not established causes. Review private candidates before making semantic claims."
+}

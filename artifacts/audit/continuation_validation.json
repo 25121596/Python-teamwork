@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-22",
+  "baseline": "cd8e1060de34fd857f5c267f09152d04c7307d4c",
+  "scope": "Synthetic regression and document QA only; real stages seven/eight not executed.",
+  "synthetic_tests": {
+    "command": "python -m unittest discover -s tests -q",
+    "total": 128,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 2.348
+  },
+  "check_environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "scikit_learn": "1.8.0",
+    "jieba": "0.42.1",
+    "beautifulsoup4": "4.14.3",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.6.0",
+    "matches_recorded_real_experiment": false
+  },
+  "real_entrypoints": {
+    "scripts/compare_cleaning.py": {
+      "exit_code": 2,
+      "status": "blocked",
+      "reason": "Missing private upstream caches and runtime mismatch"
+    },
+    "scripts/evaluate_final.py": {
+      "exit_code": 2,
+      "status": "blocked",
+      "reason": "No verified final lock"
+    }
+  },
+  "word": {
+    "pages": 6,
+    "all_pages_visually_checked": true,
+    "archive_integrity": "passed",
+    "teacher_template_applied": false
+  },
+  "powerpoint": {
+    "slides": 8,
+    "native_charts": 1,
+    "native_tables": 6,
+    "all_slides_visually_checked": true,
+    "package_integrity": "pass",
+    "layout_findings": 0,
+    "layout_warnings": 0,
+    "reimport_passed": true,
+    "native_powerpoint_open_verified": false
+  },
+  "public_deliverable_sha256": {
+    "deliverables/项目报告草稿.docx": "7c526e14a3a611239974a9deb081e3b63d2137cf98dd157e40736fef95285a57",
+    "deliverables/项目报告草稿.md": "773d11eedb5baa2e3a92852b7cce670c2371428cde7e00647328994e9a3c6075",
+    "deliverables/汇报草稿.pptx": "6b9154d0d6c20bd90f16bcc3d072733c776b852626da94a300a92b2e996b0227",
+    "deliverables/五分钟汇报讲稿.md": "04357583481c75f0c39345f1879551ff46ccf4cc4b6477fcab3e88454367fa68",
+    "deliverables/答辩提纲.md": "25abdfd2e42fda317dd2a1ece2f313400152313f2e15ba89af0bb44d1883e9ad"
+  },
+  "github": {
+    "account": "yangchengming62-lab",
+    "repository": "25121596/Python-teamwork",
+    "user_push_permission": true,
+    "integration_write_attempt": "create branch complete-project-stages",
+    "integration_status": 403,
+    "integration_error": "Resource not accessible by integration",
+    "visible_app_installation_accounts": [
+      "yangchengming62-lab"
+    ],
+    "remote_upload_succeeded": false
+  },
+  "course_submission_complete": false,
+  "recorded_video_created": false
+}

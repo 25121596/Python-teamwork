@@ -52,7 +52,7 @@ def write_comparison_csv(path: Path, results: list[dict]) -> None:
 
 
 def plot_comparison(path: Path, results: list[dict], selected_id: str) -> None:
-    plt.rcParams.update({"font.sans-serif": ["Microsoft YaHei", "SimHei", "DejaVu Sans"], "axes.unicode_minus": False})
+    plt.rcParams.update({"font.sans-serif": ["Microsoft YaHei", "SimHei", "Noto Sans CJK SC", "DejaVu Sans"], "axes.unicode_minus": False})
     positions = np.arange(len(results))
     labels = ["多数类" if row["family"] == "majority" else
               f"NB α={row['parameters']['alpha']:g}" if row["family"] == "multinomial_nb" else
